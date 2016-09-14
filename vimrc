@@ -113,6 +113,8 @@ set lazyredraw            " don't update while executing macros
 set history=1000 
 set scrolloff=4
 
+set backspace=indent,eol,start
+
 se mouse+=a "allow to copy without line numbers
 
 " Shortcut to rapidly toggle `set list`
