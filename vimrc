@@ -174,6 +174,12 @@ vnoremap <C-c> "*y
 set splitbelow
 set splitright
  
+"more split configs 
+set winwidth=84 
+set winheight=5
+set winminheight=5
+set winheight=999
+
 " Make it obvious where 80 characters is
 set textwidth=80
 set colorcolumn=+1
