@@ -2,7 +2,7 @@
 "execute pathogen#infect()
 "
 "
-source ~/dotfiles/bundles.vim
+source ~/code/dotfiles/bundles.vim
 
 set nocompatible
 filetype off 
@@ -13,6 +13,32 @@ colorscheme railscasts
 "Invisible character colors 
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+
+
+" set up some custom colors
+highlight clear SignColumn
+highlight VertSplit    ctermbg=236
+highlight ColorColumn  ctermbg=237
+highlight LineNr       ctermbg=236 ctermfg=240
+highlight CursorLineNr ctermbg=236 ctermfg=240
+highlight CursorLine   ctermbg=236
+highlight StatusLineNC ctermbg=238 ctermfg=0
+highlight StatusLine   ctermbg=240 ctermfg=12
+highlight IncSearch    ctermbg=3   ctermfg=1
+highlight Search       ctermbg=1   ctermfg=3
+highlight Visual       ctermbg=3   ctermfg=0
+highlight Pmenu        ctermbg=240 ctermfg=12
+highlight PmenuSel     ctermbg=3   ctermfg=1
+highlight SpellBad     ctermbg=0   ctermfg=1
+
+
+" map markdown preview
+map <leader>m :!open -a "Atom" %<cr><cr>
+
+" map git commands
+map <leader>b :Gblame<cr>
+map <leader>l :!clear && git log -p %<cr>
+map <leader>d :!clear && git diff %<cr>
 
 "###################
 "# general 

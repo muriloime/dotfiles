@@ -1,6 +1,6 @@
 
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/vimrc ~/.vimrc
+ln -s ~/code/dotfiles/zshrc ~/.zshrc
+ln -s ~/code/dotfiles/vimrc ~/.vimrc
 
 chsh -s $(which zsh)
 
@@ -16,6 +16,8 @@ git config --global alias.unstage "reset HEAD"
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global alias.brs "for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
 git config --global alias.glog 'log -E -i --grep'
+git config --global alias.car 'commit --amend --no-edit'
+git config --global alias.uncommit 'reset --soft HEAD^'
 
 
 git config --global diff.tool vimdiff
