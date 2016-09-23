@@ -3,6 +3,8 @@ ln -s ~/code/dotfiles/zshrc ~/.zshrc
 ln -s ~/code/dotfiles/vimrc ~/.vimrc
 ln -s ~/code/dotfiles/tmux.conf ~/.tmux.conf
 
+sudo cp -rp /bin/* /usr/local/bin/
+
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
