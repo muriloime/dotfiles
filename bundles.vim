@@ -7,12 +7,22 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin'airblade/vim-gitgutter'
+
+Plugin'bronson/vim-trailing-whitespace'
+Plugin'terryma/vim-multiple-cursors'
+
+
+
 "Plugin 'Lokaltog/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 "Powerline alternative
 Plugin 'vim-airline/vim-airline'
 
+" ctr w o to zoom window 
+
+Plugin'vim-scripts/ZoomWin'
 " Pairs of handy bracket mappings
 Plugin 'tpope/vim-unimpaired' 
 
@@ -32,6 +42,7 @@ Plugin 'tpope/vim-bundler'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
 Plugin 'jpo/vim-railscasts-theme'
+Plugin'skalnik/vim-vroom'
 
 "ack to search for patterns
 Plugin 'mileszs/ack.vim'
