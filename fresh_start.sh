@@ -5,6 +5,9 @@ ln -s ~/code/dotfiles/tmux.conf ~/.tmux.conf
 
 sudo cp -rp /bin/* /usr/local/bin/
 
+# tmux plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
