@@ -10,6 +10,32 @@ export ZSH=~/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+
+# Add this to your zshrc or bzshrc file
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+	if _not_inside_tmux; then
+		tat
+	fi
+}
+
+ensure_tmux_is_running
+
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+	if [[ $# > 0 ]]; then
+		git $@
+	else
+		git status
+	fi
+}
+
+# Complete g like git
+compdef g=git
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

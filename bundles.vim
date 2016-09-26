@@ -7,10 +7,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
-Plugin'bronson/vim-trailing-whitespace'
-Plugin'terryma/vim-multiple-cursors'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'terryma/vim-multiple-cursors'
 
 
 

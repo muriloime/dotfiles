@@ -35,6 +35,13 @@ highlight SpellBad     ctermbg=0   ctermfg=1
 " map markdown preview
 map <leader>m :!open -a "Atom" %<cr><cr>
 
+" zoom a vim pane, <C-w>= to re-balance
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
 " map git commands
 map <leader>b :Gblame<cr>
 map <leader>l :!clear && git log -p %<cr>
