@@ -4,6 +4,8 @@ ln -s ~/code/dotfiles/vimrc ~/.vimrc
 ln -s ~/code/dotfiles/tmux.conf ~/.tmux.conf
 
 sudo cp -rp /bin/* /usr/local/bin/
+sudo cp -rp /tmux/* ~/.tmux/
+chmod +x ~/.tmux/*.sh
 
 # tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
