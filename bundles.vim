@@ -1,5 +1,5 @@
 set nocompatible
-filetype off 
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,29 +20,29 @@ Plugin 'easymotion/vim-easymotion'
 "Powerline alternative
 Plugin 'vim-airline/vim-airline'
 
-" ctr w o to zoom window 
+" ctr w o to zoom window
 
-Plugin'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/ZoomWin'
 " Pairs of handy bracket mappings
-Plugin 'tpope/vim-unimpaired' 
+Plugin 'tpope/vim-unimpaired'
 
 Plugin 'ervandew/supertab'
 "Surround words lines and blocks with { [ "' EVERYTHING
 Plugin 'tpope/vim-surround.git'
-" allow to repeat more things with . command 
+" allow to repeat more things with . command
 Plugin 'tpope/vim-repeat'
 
 "use :CtrlP to search for files
 Plugin 'ctrlpvim/ctrlp.vim'
 
-"rails plugin 
+"rails plugin
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
 Plugin 'jpo/vim-railscasts-theme'
-Plugin'skalnik/vim-vroom'
+Plugin 'skalnik/vim-vroom'
 
 "ack to search for patterns
 Plugin 'mileszs/ack.vim'
@@ -54,29 +54,30 @@ Plugin 'garbas/vim-snipmate'
 " " Optional:
 Plugin 'honza/vim-snippets'
 
-"pluralize, etc 
+"pluralize, etc
 Plugin 'tpope/vim-abolish'
 
 "plugins to facilitate motions
 Plugin 'vim-scripts/argtextobj.vim'
 
-"git 
+"git
 Plugin 'gregsexton/gitv'
 
-"tmux integration 
+"tmux integration
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
 
 
-"run specs, etc 
+"run specs, etc
 Plugin 'tpope/vim-dispatch'
 
 "maximize window with F3
 Plugin 'szw/vim-maximizer'
 
-"personal wiki 
+"personal wiki
 Plugin 'vimwiki/vimwiki'
 
-"commentary 
+"commentary
 Plugin 'tpope/vim-commentary'
 
 Plugin 'nelstrom/vim-textobj-rubyblock'
