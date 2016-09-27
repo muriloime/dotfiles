@@ -67,8 +67,13 @@ git config --global alias.riu "!git rebase -i $(git upstream)"
 git config --global alias.sl "log --oneline --decorate --graph -20"
 git config --global alias.slap "log --oneline --decorate --all --graph"
 git config --global alias.slp "log --oneline --decorate --graph"
+git config --global alias.upstream "rev-parse --abbrev-ref --symbolic-full-name @{u}"
+
+git config --global alias.rim 'git config --global alias.plr "pull --rebase" rebase --interactive $(git merge-base master HEAD)"git config --global alias.riu "git config --global alias.plr "pull --rebase" rebase -i $(git upstream)"git config --global alias.sl "log --oneline --decorate --graph -20'
+
 
 git config --global push.default upstream
+git config --global fetch.prune true
 
 
 git config --global diff.tool vimdiff
