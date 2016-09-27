@@ -39,6 +39,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ##### GIT configurations
 
+git config --global init.templatedir '~/code/dotfiles/git_template'
+chmod a+x ~/code/dotfiles/git_template/hooks/*
+
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit

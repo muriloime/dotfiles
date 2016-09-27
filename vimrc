@@ -5,12 +5,12 @@
 source ~/code/dotfiles/bundles.vim
 
 set nocompatible
-filetype off 
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
 colorscheme railscasts
-"Invisible character colors 
+"Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -47,15 +47,24 @@ map <leader>b :Gblame<cr>
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
 
+"map vundle commands 
+map <leader>pi :PluginInstall<cr>
+
+
+let g:vroom_use_vimux =1 
+let g:vroom_use_colors = 1
+let g:vroom_use_binstubs=1
+
 "###################
-"# general 
+"# general
 "###################
 
 let mapleader = "\<Space>"
 
-"improve speed for ctrlp fuzzy finder 
+"improve speed for ctrlp fuzzy finder
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|vendor|git|hg|svn|optimized|compiled|node_modules)$'
 
 
 if executable('ag')
@@ -69,12 +78,12 @@ endif
 " endif
 
 
-syntax on 
+syntax on
 set shiftwidth=2
 set tabstop=2
 set expandtab
 set lazyredraw            " don't update while executing macros
-set history=1000 
+set history=1000
 set scrolloff=4
 
 set backspace=indent,eol,start
@@ -87,6 +96,7 @@ nmap <leader>l :set list!<CR>
 nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>vt :sp ~/code/dotfiles/tmux.conf<cr>
 nmap <leader>vb :sp ~/code/dotfiles/bundles.vim<cr>
+nmap <leader>vz :sp ~/code/dotfiles/zshrc<cr>
 nmap <leader>so :source $MYVIMRC<cr>
 
 nmap k gk
@@ -107,7 +117,7 @@ map <Leader>cs :call SearchForCallSitesCursor()<CR>
 "set listchars=tab:▸\ ,eol:¬
 "set lcs=tab:>-,eol:<
 
-" search with / faster 
+" search with / faster
 set incsearch
 set hlsearch
 " Use Silver Searcher instead of grep
@@ -129,7 +139,7 @@ set laststatus=2 " show the satus line all the time
 " Numbers
 set number
 "set numberwidth=5
-set relativenumber 
+set relativenumber
 
 function! NumberToggle()
 	if(&relativenumber ==1)
@@ -150,9 +160,9 @@ vnoremap <C-c> "*y
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
- 
-"more split configs 
-set winwidth=84 
+
+"more split configs
+set winwidth=84
 set winheight=5
 set winminheight=5
 set winheight=999
@@ -182,19 +192,42 @@ runtime macros/matchit.vim
 let g:NERDTreeDirArrows=0
 
 "###################
-"# Plugin setup 
+"# git integration
+"###################
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :call VimuxRunCommand("git push")<CR>
+nnoremap <space>gpl :call VimuxRunCommand("git pull")<CR>
+nnoremap <space>gs :call VimuxRunCommand("git status -s")<CR>
+
+
+"###################
+"# Plugin setup
 "###################
 
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-"adding spec config to dispatch 
+"adding spec config to dispatch
 let g:rspec_command = "Dispatch rspec {spec}"
 
 map <leader>rt :w<cr>:call RunCurrentTest('!ts bundle exec rspec')<cr>
 
 
-"NERDTree configurations 
+map <Leader>r :! chrome-cli reload<CR><CR>
+map <Leader>bi :bundle install<cr> 
+
+"NERDTree configurations
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -211,8 +244,8 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 endfunction
 
 
-"###### 
-"# Functions 
+"######
+"# Functions
 "#########
 "
 
