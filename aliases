@@ -17,3 +17,6 @@ alias path='echo $PATH | tr -s ":" "\n"'
 
 alias gdel='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias gdelr="git fetch -p origin && git branch -r --merged | grep origin |grep -v '>' | grep -v develop | xargs -L1 | cut -d"/" -f2- | xargs git push origin --delete"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

@@ -56,9 +56,6 @@ _load_settings "$HOME/code/dotfiles/zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-# Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
