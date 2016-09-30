@@ -1,7 +1,7 @@
 
-ln -s ~/code/dotfiles/zshrc ~/.zshrc
-ln -s ~/code/dotfiles/vimrc ~/.vimrc
-ln -s ~/code/dotfiles/tmux.conf ~/.tmux.conf
+ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
+ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
+ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
 
 sudo cp -rp /bin/* /usr/local/bin/
 sudo cp -rp /tmux/* ~/.tmux/
@@ -85,3 +85,6 @@ git config --global difftool.prompt false
 
 git config --global merge.tool diffmerge
 
+
+# load zshrc file
+source ~/.zshrc
