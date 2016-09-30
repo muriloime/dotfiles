@@ -64,7 +64,7 @@ let mapleader = "\<Space>"
 "improve speed for ctrlp fuzzy finder
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|vendor|git|hg|svn|optimized|compiled|node_modules)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|vendor|git|hg|svn|optimized|compiled|node_modules|tmp)$'
 
 
 if executable('ag')
@@ -301,10 +301,12 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! MapCR()
-	nnoremap <cr> :call RunTestFile()<cr>
-endfunction
-call MapCR()
+
+" function! MapCR()
+" 	nnoremap <cr> :call RunTestFile()<cr>
+" endfunction
+" call MapCR()
+
 nnoremap <leader>T :call RunNearestTest()<cr>
 nnoremap <leader>a :call RunTests('')<cr>
 nnoremap <leader>c :w\|:!script/features<cr>

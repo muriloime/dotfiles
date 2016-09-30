@@ -11,6 +11,57 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 
+# load custom executable functions
+for function in ~/code/dotfiles/zsh/functions/*; do
+	source $function
+done
+
+
+# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
+# these are loaded first, second, and third, respectively.
+_load_settings() {
+	_dir="$1"
+	if [ -d "$_dir" ]; then
+		if [ -d "$_dir/pre" ]; then
+			for config in "$_dir"/pre/**/*(N-.); do
+				. $config
+			done
+		fi
+
+		for config in "$_dir"/**/*(N-.); do
+			case "$config" in
+				"$_dir"/pre/*)
+					:
+					;;
+				"$_dir"/post/*)
+					:
+					;;
+				*)
+					if [ -f $config ]; then
+						. $config
+					fi
+					;;
+			esac
+		done
+
+		if [ -d "$_dir/post" ]; then
+			for config in "$_dir"/post/**/*(N-.); do
+				. $config
+			done
+		fi
+	fi
+}
+_load_settings "$HOME/code/dotfiles/zsh/configs"
+
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # Add this to your zshrc or bzshrc file
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -29,7 +80,7 @@ g() {
 	if [[ $# > 0 ]]; then
 		git $@
 	else
-		git status
+		git status -v
 	fi
 }
 
