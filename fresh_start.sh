@@ -1,14 +1,8 @@
 
-<<<<<<< HEAD
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
-=======
-ln -s ~/code/dotfiles/zshrc ~/.zshrc
-ln -s ~/code/dotfiles/vimrc ~/.vimrc
-ln -s ~/code/dotfiles/tmux.conf ~/.tmux.conf
-ln -s ~/code/dotfiles/aliases ~/.aliases
->>>>>>> staging
+ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
 sudo cp -rp /bin/* /usr/local/bin/
 sudo cp -rp /tmux/* ~/.tmux/
