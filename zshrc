@@ -161,3 +161,4 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"

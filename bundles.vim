@@ -76,6 +76,7 @@ Plugin 'szw/vim-maximizer'
 
 "personal wiki
 Plugin 'vimwiki/vimwiki'
+Plugin 'mattn/calendar-vim'
 
 "commentary
 Plugin 'tpope/vim-commentary'

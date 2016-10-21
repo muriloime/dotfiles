@@ -47,11 +47,11 @@ map <leader>b :Gblame<cr>
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
 
-"map vundle commands 
+"map vundle commands
 map <leader>pi :PluginInstall<cr>
 
 
-let g:vroom_use_vimux =1 
+let g:vroom_use_vimux =1
 let g:vroom_use_colors = 1
 let g:vroom_use_binstubs=1
 
@@ -114,7 +114,8 @@ map <Leader>cs :call SearchForCallSitesCursor()<CR>
 
 "
 " Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=tab:▸\ ,eol:¬
+set list
+set listchars=tab:▸\ ,eol:¬,trail:.
 "set lcs=tab:>-,eol:<
 
 " search with / faster
@@ -215,21 +216,46 @@ nnoremap <space>gs :call VimuxRunCommand("git status -s")<CR>
 "# Plugin setup
 "###################
 
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+" let g:gitgutter_realtime = 0
+" let g:gitgutter_eager = 0
+
+let g:vimwiki_list = [{'path':'~/code/wiki', 'path_html':'~/code/export/html/'}]
+
+au BufRead,BufNewFile *.wiki set filetype=vimwiki
+:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<cr>
+function! ToggleCalendar()
+	execute ":Calendar"
+	if exists("g:calendar_open")
+		if g:calendar_open == 1
+			execute "q"
+			unlet g:calendar_open
+		else
+			g:calendar_open = 1
+		end
+	else
+		let g:calendar_open = 1
+	end
+endfunction
+:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<cr>
+:autocmd FileType vimwiki map <leader>u :VimwikiDiaryGenerateLinks<cr>
+
+
 
 "adding spec config to dispatch
-let g:rspec_command = "Dispatch rspec {spec}"
-
-map <leader>rt :w<cr>:call RunCurrentTest('!ts bundle exec rspec')<cr>
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 
 
 map <Leader>r :! chrome-cli reload<CR><CR>
-map <Leader>bi :bundle install<cr> 
+map <Leader>bi :Bundle install<cr>
+
 
 "NERDTree configurations
 "autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+"mappings for tabs
+map <Leader>tn :tabnext<CR>
+map <Leader>tp :tabprev<CR>
 
 "mappings for rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
