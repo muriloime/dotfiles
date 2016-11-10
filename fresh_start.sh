@@ -11,6 +11,8 @@ chmod +x ~/.tmux/*.sh
 # tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+# vim plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
 chsh -s $(which zsh)
@@ -46,11 +48,11 @@ git config --global alias.df "diff --word-diff --color-words"
 git config --global alias.pl "pull"
 git config --global alias.plr "pull --rebase"
 git config --global alias.rim "!git rebase --interactive $(git merge-base master HEAD)"
-git config --global alias.riu "!git rebase -i $(git upstream)"
+git config --global alias.upstream "rev-parse --abbrev-ref --symbolic-full-name @{u}"
+#git config --global alias.riu "!git rebase -i $(git upstream)"
 git config --global alias.sl "log --oneline --decorate --graph -20"
 git config --global alias.slap "log --oneline --decorate --all --graph"
 git config --global alias.slp "log --oneline --decorate --graph"
-git config --global alias.upstream "rev-parse --abbrev-ref --symbolic-full-name @{u}"
 git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m “root” --allow-empty'
 git config --global alias.stsh 'stash --keep-index'
