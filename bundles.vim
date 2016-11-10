@@ -29,6 +29,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'ervandew/supertab'
 "Surround words lines and blocks with { [ "' EVERYTHING
 Plugin 'tpope/vim-surround.git'
+Plugin 'PeterRincker/vim-argumentative.git'
 " allow to repeat more things with . command
 Plugin 'tpope/vim-repeat'
 

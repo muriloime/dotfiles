@@ -5,6 +5,13 @@
 source ~/code/dotfiles/bundles.vim
 
 set nocompatible
+" If a file is changed outside of vim, automatically reload it without asking
+set autoread
+" Use the old vim regex engine (version 1, as opposed to version 2, which was
+" introduced in Vim 7.3.969). The Ruby syntax highlighting is significantly
+" slower with the new regex engine.
+set re=1
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -39,6 +46,10 @@ map <leader>m :!open -a "Atom" %<cr><cr>
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+"easily access to first non-whitespace character
+nnoremap 0 ^
+nnoremap 00 0
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -62,7 +73,7 @@ let g:vroom_use_binstubs=1
 let mapleader = "\<Space>"
 
 "improve speed for ctrlp fuzzy finder
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --hidden --ignore tmp --ignore vendor --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Store|vendor|git|hg|svn|optimized|compiled|node_modules|tmp)$'
 
@@ -97,15 +108,43 @@ nmap <leader>vr :sp $MYVIMRC<cr>
 nmap <leader>vt :sp ~/code/dotfiles/tmux.conf<cr>
 nmap <leader>vb :sp ~/code/dotfiles/bundles.vim<cr>
 nmap <leader>vz :sp ~/code/dotfiles/zshrc<cr>
+nmap <leader>vf :sp ~/code/dotfiles/fresh_start.sh<cr>
+nmap <leader>vm :sp ~/code/laptop/mac<cr>
+nmap <leader>q :q<cr>
+nmap <leader>Q :wq<cr>
+nmap <leader>W :wq<cr>
+nmap <leader>w :w<cr>
 nmap <leader>so :source $MYVIMRC<cr>
+
+cnoremap <expr> %% expand('%:h').'/'
+
+
+function! VimuxSlime()
+	call VimuxRunCommand(@v)
+	call VimuxSendKeys("Enter")
+endfunction
+
+" If text is selected, save it in the v buffer and send that buffer it to tmux
+vmap <Leader>vs "vy :call VimuxSlime()<CR>
+
+" Select current paragraph and send it to tmux
+nmap <Leader>vs vip<LocalLeader>vs<CR>
+
+" Inspect runner pane map
+map <Leader>vi :VimuxInspectRunner<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
 
 nmap k gk
 nmap j gj
+imap jk <Esc>
+imap kj <Esc>
 
 " Copy the entire buffer into the system register
 nmap <leader>co ggVG*y
 
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
+" map <Leader>p "*]p
 
 map <Leader>i mmgg=G`m<cr>
 
@@ -180,9 +219,6 @@ nnoremap <silent> <Down> :resize -5<cr>
 
 autocmd Filetype help nmap <buffer> q :q<cr>
 
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
 " set tags directory for goto definition
 set tags=./.git/tags;
 
@@ -218,6 +254,7 @@ nnoremap <space>gs :call VimuxRunCommand("git status -s")<CR>
 
 " let g:gitgutter_realtime = 0
 " let g:gitgutter_eager = 0
+
 
 let g:vimwiki_list = [{'path':'~/code/wiki', 'path_html':'~/code/export/html/'}]
 
