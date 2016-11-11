@@ -14,8 +14,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # vim plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-
+command -v zsh | sudo tee -a /etc/shells
 chsh -s $(which zsh)
+
+##### Oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
