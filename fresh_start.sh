@@ -67,6 +67,9 @@ git config --global alias.grog 'log --graph --abbrev-commit --decorate --all --f
 git config --global alias.rim 'git config --global alias.plr "pull --rebase" rebase --interactive $(git merge-base master HEAD)"git config --global alias.riu "git config --global alias.plr "pull --rebase" rebase -i $(git upstream)"git config --global alias.sl "log --oneline --decorate --graph -20'
 
 
+git config --global alias.po "push --set-upstream origin $(git branch | awk '/^\* / { print $2 }')"
+
+
 git config --global push.default upstream
 git config --global fetch.prune true
 
