@@ -48,7 +48,7 @@ nnoremap <leader>= :wincmd =<cr>
 
 "easily access to first non-whitespace character
 nnoremap 0 ^
-nnoremap 00 0
+" nnoremap 00 0
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
@@ -115,6 +115,8 @@ nmap <leader>Q :wq<cr>
 nmap <leader>W :wq<cr>
 nmap <leader>w :w<cr>
 nmap <leader>so :source $MYVIMRC<cr>
+
+noremap <Leader>sw :Ack <cword><cr>
 
 cnoremap <expr> %% expand('%:h').'/'
 
@@ -231,21 +233,21 @@ let g:NERDTreeDirArrows=0
 "###################
 "# git integration
 "###################
-nnoremap <space>ga :Git add %:p<CR><CR>
-nnoremap <space>gc :Gcommit -v -q<CR>
-nnoremap <space>gt :Gcommit -v -q %:p<CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>ge :Gedit<CR>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR><CR>
-nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-nnoremap <space>gp :Ggrep<Space>
-nnoremap <space>gm :Gmove<Space>
-nnoremap <space>gb :Git branch<Space>
-nnoremap <space>go :Git checkout<Space>
-nnoremap <space>gps :call VimuxRunCommand("git push")<CR>
-nnoremap <space>gpl :call VimuxRunCommand("git pull")<CR>
-nnoremap <space>gs :call VimuxRunCommand("git status -s")<CR>
+nnoremap <Leader>ga :Git add %:p<CR><CR>
+nnoremap <Leader>gc :Gcommit -v -q<CR>
+nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>ge :Gedit<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR><CR>
+nnoremap <Leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <Leader>gp :Ggrep<Space>
+nnoremap <Leader>gm :Gmove<Space>
+nnoremap <Leader>gb :Git branch<Space>
+nnoremap <Leader>go :Git checkout<Space>
+nnoremap <Leader>gps :call VimuxRunCommand("git push")<CR>
+nnoremap <Leader>gpl :call VimuxRunCommand("git pull")<CR>
+nnoremap <Leader>gs :call VimuxRunCommand("git status -s")<CR>
 
 
 "###################
@@ -425,13 +427,14 @@ function! RunTests(filename)
 					redraw!
 				" Fall back to a blocking test run with Bundler
 				elseif filereadable("Gemfile")
-						exec ":!bundle exec rspec --color " . a:filename
+						exec ":!bin/rspec --color " . a:filename
+						" exec ":!bin/bundle exec rspec --color " . a:filename
 				" If we see python-looking tests, assume they should be run with Nose
 				elseif strlen(glob("test/**/*.py") . glob("tests/**/*.py"))
 						exec "!nosetests " . a:filename
 				" Fall back to a normal blocking test run
 				else
-						exec ":!rspec --color " . a:filename
+						exec ":!bin/rspec --color " . a:filename
 				end
 		end
 endfunction
