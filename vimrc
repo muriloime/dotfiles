@@ -99,7 +99,7 @@ set scrolloff=4
 
 set backspace=indent,eol,start
 
-se mouse+=a "allow to copy without line numbers
+set mouse+=a "allow to copy without line numbers
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -170,7 +170,7 @@ set smartcase " case-sensitive if expresson contains a capital letter
 
 set magic " Set magic on, for regex
 
-set clipboard=unnamed "allow to copy to clipboard
+set clipboard=unnamedplus "allow to copy to clipboard
 
 
 set autoindent " automatically set indent of new line
