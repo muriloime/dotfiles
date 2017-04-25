@@ -46,6 +46,10 @@ map <leader>m :!open -a "Atom" %<cr><cr>
 nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>= :wincmd =<cr>
 
+"map python formatter
+autocmd FileType python nnoremap <LocalLeader>== :0,$!yapf<CR>
+autocmd FileType python nnoremap <LocalLeader>ii :!isort %<CR><CR>
+
 "easily access to first non-whitespace character
 nnoremap 0 ^
 " nnoremap 00 0
