@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'bronson/vim-trailing-whitespace'
@@ -42,8 +43,11 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-rake'
-Plugin 'jpo/vim-railscasts-theme'
 Plugin 'skalnik/vim-vroom'
+
+"Themes
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'sickill/vim-monokai'
 
 "ack to search for patterns
 Plugin 'mileszs/ack.vim'
