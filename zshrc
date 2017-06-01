@@ -129,7 +129,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 setopt auto_cd
 cdpath=($HOME/kroton-engenharias $HOME/dotfiles)
 
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
