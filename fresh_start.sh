@@ -28,6 +28,10 @@ git config --global init.templatedir '~/code/dotfiles/git_template'
 chmod a+x ~/code/dotfiles/git_template/hooks/*
 
 git config --global alias.co checkout
+git config --global merge.ff only
+git config --global merge.conflictstyle diff3
+git config --global push.default simple
+
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
