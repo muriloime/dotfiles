@@ -15,7 +15,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 
 
-"Plugin 'Lokaltog/vim-powerline'
+"Plugin 'powerline/vim-powerline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 "Powerline alternative
