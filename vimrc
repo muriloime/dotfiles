@@ -267,6 +267,8 @@ nnoremap <Leader>gs :call VimuxRunCommand("git status -s")<CR>
 " let g:gitgutter_eager = 0
 
 
+let g:instant_markdown_slow = 1
+
 let g:vimwiki_list = [{'path':'~/code/wiki', 'path_html':'~/code/export/html/'}]
 
 au BufRead,BufNewFile *.wiki set filetype=vimwiki

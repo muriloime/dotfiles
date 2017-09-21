@@ -13,7 +13,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'terryma/vim-multiple-cursors'
 
-
+"plugins for markdown 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 
 "Plugin 'powerline/vim-powerline'
 Plugin 'scrooloose/nerdtree'
