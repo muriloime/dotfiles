@@ -1,0 +1,54 @@
+[user]
+	name = Murilo Vasconcelos Andrade
+	email = muriloime@gmail.com
+[init]
+	templatedir = ~/code/dotfiles/git_template
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	brs = for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	glog = log -E -i --grep
+	car = commit --amend --no-edit
+	uncommit = reset --soft HEAD^
+	aa = add --all
+	adp = add --patch
+	b = branch
+	ri = rebase -i
+	sdot = status . --short --branch
+	stat = show --stat
+	si = status --ignored
+	dc = diff --word-diff --cached --color-words
+	df = diff --word-diff --color-words
+	pl = pull
+	plr = pull --rebase
+	rim = git config --global alias.plr \"pull --rebase\" rebase --interactive $(git merge-base master HEAD)\"git config --global alias.riu \"git config --global alias.plr \"pull --rebase\" rebase -i $(git upstream)\"git config --global alias.sl \"log --oneline --decorate --graph -20
+	upstream = rev-parse --abbrev-ref --symbolic-full-name @{u}
+	sl = log --oneline --decorate --graph -20
+	slap = log --oneline --decorate --all --graph
+	slp = log --oneline --decorate --graph
+	commend = commit --amend --no-edit
+	it = !git init && git commit -m “root” --allow-empty
+	stsh = stash --keep-index
+	staash = stash --include-untracked
+	staaash = stash --all
+	shorty = status --short --branch
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	po = push --set-upstream origin master
+[push]
+	default = simple
+[fetch]
+	prune = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = meld
+	ff = only
+	conflictstyle = diff3
+[difftool]
+	prompt = false
+[hub]
+	protocol = ssh
