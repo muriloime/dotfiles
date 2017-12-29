@@ -1,12 +1,12 @@
-
+#!/bin/bash
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
-sudo cp -rp /bin/* /usr/local/bin/
-sudo cp -rp /tmux/* ~/.tmux/
+sudo cp -rp bin/* /usr/local/bin/
+sudo cp -rp tmux/* ~/.tmux/
 chmod +x ~/.tmux/*.sh
 
 # tmux plugins
