@@ -86,5 +86,10 @@ git config --global difftool.prompt false
 git config --global merge.tool diffmerge
 
 
+## install pip
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py --user
+rm get-pip.py
+
 # load zshrc file
 source ~/.zshrc
