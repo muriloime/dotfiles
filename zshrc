@@ -72,13 +72,13 @@ ensure_tmux_is_running
 
 # No arguments: `git status`
 # With arguments: acts like `git`
-g() {
-	if [[ $# > 0 ]]; then
-		git $@
-	else
-		git status -v
-	fi
-}
+# g() {
+#   if [[ $# > 0 ]]; then
+#     git $@
+#   else
+#     git status -v
+#   fi
+# }
 
 # Complete g like git
 compdef g=git
@@ -173,3 +173,6 @@ export NVM_DIR="$HOME/.nvm"
 export LUA_PATH='/home/mumu/.luarocks/share/lua/5.1/?.lua;/home/mumu/.luarocks/share/lua/5.1/?/init.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/share/lua/5.1/?.lua;./?.lua;/usr/local/lib/lua/5.1/?.lua;/usr/local/lib/lua/5.1/?/init.lua;/usr/share/lua/5.1/?/init.lua'
 export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?.so;./?.so;/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# recommended by brew doctor
+export PATH="/usr/local/bin:$PATH"
