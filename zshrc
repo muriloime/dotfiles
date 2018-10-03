@@ -80,8 +80,6 @@ ensure_tmux_is_running
 #   fi
 # }
 
-# Complete g like git
-compdef g=git
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -137,6 +135,9 @@ plugins=(git zsh-syntax-highlighting jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
+# Complete g like git
+compdef g=git
+
 # User configuration
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=100000
@@ -167,6 +168,9 @@ export SAVEHIST=100000
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+# add path to miniconda
+export PATH=~/miniconda3/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
