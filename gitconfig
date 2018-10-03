@@ -1,5 +1,5 @@
 [user]
-	name = Murilo Vasconcelos Andrade
+	name = Murilo Vasconcelos
 	email = muriloime@gmail.com
 [init]
 	templatedir = ~/code/dotfiles/git_template
@@ -52,3 +52,5 @@
 	prompt = false
 [hub]
 	protocol = ssh
+[gui]
+	recentrepo = /Users/murilo/code/quant/fundos_downloader
