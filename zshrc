@@ -131,7 +131,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 setopt auto_cd
 cdpath=($HOME/kroton-engenharias $HOME/dotfiles)
 
-plugins=(git zsh-syntax-highlighting jsontools)
+plugins=(git zsh-syntax-highlighting jsontools docker history git-flow brew)
 
 source $ZSH/oh-my-zsh.sh
 
