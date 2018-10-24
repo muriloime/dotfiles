@@ -4,10 +4,11 @@
 
 To install, you must do the following:
 
-```cd 
+```
+cd 
 mkdir code
 cd code 
-g clone git@github.com:muriloime/dotfiles.git
+git clone git@github.com:muriloime/dotfiles.git
 ```
 
 This will create a repo called dotfiles at ~/code/. Next you need to run: 
