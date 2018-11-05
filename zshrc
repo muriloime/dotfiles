@@ -1,4 +1,9 @@
+fancy_echo() {
+  local fmt="$1"; shift
 
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -180,3 +185,11 @@ export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?
 
 # recommended by brew doctor
 export PATH="/usr/local/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
+
+if [ -f "$HOME/.laptop.local" ]; then
+  fancy_echo "Running your customizations from ~/.laptop.local ..."
+  # shellcheck disable=SC1090
+  . "$HOME/.laptop.local"
+fi
+
