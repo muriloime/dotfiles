@@ -134,7 +134,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 
 setopt auto_cd
-cdpath=($HOME/kroton-engenharias $HOME/dotfiles)
+cdpath=($HOME/code $HOME/Documents)
 
 plugins=(git zsh-syntax-highlighting jsontools docker history git-flow brew)
 
