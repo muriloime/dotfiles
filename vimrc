@@ -179,10 +179,14 @@ set smartcase " case-sensitive if expresson contains a capital letter
 
 set magic " Set magic on, for regex
 
-set clipboard=unnamedplus "allow to copy to clipboard
+let uname = substitute(system('uname'), '\n', '', '')
+if uname == 'Linux'
+  set clipboard=unnamedplus "allow to copy to clipboard
+else
+  set clipboard=unnamed "allow to copy to clipboard ( mac)
+endif
 
-
-set autoindent " automatically set indent of new line
+jet autoindent " automatically set indent of new line
 set smartindent
 
 set laststatus=2 " show the satus line all the time
