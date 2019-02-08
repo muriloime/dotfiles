@@ -56,6 +56,7 @@
 	recentrepo = /Users/murilo/code/quant/fundos_downloader
 [core]
 	autocrlf = input
+	excludesfile = /Users/murilo/.gitignore_global
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

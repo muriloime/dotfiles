@@ -2,6 +2,7 @@
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
+ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
 ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
