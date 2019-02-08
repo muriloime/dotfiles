@@ -186,7 +186,7 @@ else
   set clipboard=unnamed "allow to copy to clipboard ( mac)
 endif
 
-jet autoindent " automatically set indent of new line
+set autoindent " automatically set indent of new line
 set smartindent
 
 set laststatus=2 " show the satus line all the time

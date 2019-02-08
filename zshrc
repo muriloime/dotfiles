@@ -5,7 +5,7 @@ fancy_echo() {
   printf "\\n$fmt\\n" "$@"
 }
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -183,9 +183,7 @@ export LUA_PATH='/home/mumu/.luarocks/share/lua/5.1/?.lua;/home/mumu/.luarocks/s
 export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?.so;./?.so;/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so'
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
-eval "$(rbenv init - --no-rehash)"
+# eval "$(rbenv init - --no-rehash)"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
@@ -193,3 +191,5 @@ if [ -f "$HOME/.laptop.local" ]; then
   . "$HOME/.laptop.local"
 fi
 
+# recommended by brew doctor
+export PATH=/usr/local/bin:$PATH
