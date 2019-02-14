@@ -75,6 +75,10 @@ git config --global alias.rim 'git config --global alias.plr "pull --rebase" reb
 
 git config --global alias.po "push --set-upstream origin $(git branch | awk '/^\* / { print $2 }')"
 
+git config --global alias.dd "branch --merged | egrep -v \"(^\*|master|develop)\" | xargs git branch -d"
+
+git config --global alias.visual '!gitk'
+
 
 git config --global push.default upstream
 git config --global fetch.prune true
