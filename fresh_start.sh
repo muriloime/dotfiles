@@ -1,4 +1,5 @@
 #!/bin/bash
+ln -sfn ~/code/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
