@@ -130,6 +130,11 @@ ensure_tmux_is_running
 # Add wisely, as too many plugins slow down shell startup.
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+  
+# Add composer 
+export PATH="$PATH:$HOME/.composer/vendor/bin/"
+
+
 # add cuda path for mxnet 
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 
@@ -193,3 +198,7 @@ fi
 
 # recommended by brew doctor
 export PATH=/usr/local/bin:$PATH
+
+. $(brew --prefix asdf)/asdf.sh
+
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
