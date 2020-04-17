@@ -176,11 +176,17 @@ export SAVEHIST=100000
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
 # add path to miniconda
 export PATH=~/miniconda3/bin:$PATH
+
+# fix error in eb ( aws ) 
+export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -202,3 +208,4 @@ export PATH=/usr/local/bin:$PATH
 . $(brew --prefix asdf)/asdf.sh
 
 . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+export LANG=en_US.UTF-8
