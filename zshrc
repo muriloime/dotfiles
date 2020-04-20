@@ -4,6 +4,12 @@ fancy_echo() {
   # shellcheck disable=SC2059
   printf "\\n$fmt\\n" "$@"
 }
+
+# Show contents of directory after cd-ing into it
+chpwd() {
+  ls -lrthG
+}
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -150,8 +156,12 @@ compdef g=git
 
 # User configuration
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=100000
-export SAVEHIST=100000
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+
+setopt no_list_beep
+setopt no_beep
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
