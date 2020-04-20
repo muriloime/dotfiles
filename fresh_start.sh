@@ -5,6 +5,7 @@ ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
 ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
 ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
+ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 ln -sfn ~/code/dotfiles/rgrc ~/.rgrc
 ln -sfn ~/code/dotfiles/asdf ~/.asdf
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
