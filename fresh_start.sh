@@ -4,6 +4,8 @@ ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
 ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
+ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
+ln -sfn ~/code/dotfiles/asdf ~/.asdf
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
 ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
