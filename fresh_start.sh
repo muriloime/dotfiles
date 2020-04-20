@@ -14,6 +14,7 @@ ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
 sudo cp -rp bin/* /usr/local/bin/
+chmod +x /usr/local/bin/git-*
 sudo cp -rp tmux/* ~/.tmux/
 chmod +x ~/.tmux/*.sh
 
