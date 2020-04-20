@@ -1,16 +1,94 @@
+# Handle the fact that this file will be used with multiple OSs
+platform=`uname`
+if [[ $platform == 'Linux' ]]; then
+  alias a='ls -lrth --color'
+elif [[ $platform == 'Darwin' ]]; then
+  alias a='ls -lrthG'
+fi
+
+alias qq="cd . && source ~/.zshrc"
+alias cp="cp -iv"
+alias rm="rm -iv"
+alias mv="mv -iv"
+alias ls="ls -FGh"
+alias du="du -cksh"
+alias df="df -h"
+# Use modern regexps for sed, i.e. "(one|two)", not "\(one\|two\)"
+alias sed="sed -E"
+
+
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+
+alias aliases='vim ~/.dotfiles/zsh/aliases'
+
 # Unix
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
+alias remore='!! | more'
+alias repush="gpr && git push"
+alias rerake='!! && rake'
+
 
 # Bundler
 alias b="bundle"
+alias br='bin/rspec'
+alias bdp='production deploy'
+alias bds='staging deploy'
+alias be='bundle exec'
+alias bsf='bin/rspec spec/features'
+alias bsm='bin/rspec spec/models'
+alias bunbang='bundle install && !!'
+
+
+# Git 
+alias gg='git lg'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gdm='git diff master'
+alias gp='git push'
+alias gpf='git push --force'
+alias gph='git push heroku'
+alias hpush='git push heroku'
+alias gpr='git pull --rebase'
+alias grc='git rebase --continue'
+alias hpr='hub pull-request'
+alias m='git checkout master'
+alias mastre='master'
+alias squash='git rebase -i master'
+alias gcl='git clone'
+alias gcm="git commit -m"
+alias gco='git checkout'
+alias gad='git add --all .'
 
 # Rails
-alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
-alias s="rspec"
+alias migrate='be rake db:migrate db:test:prepare'
+alias rollback='be rake db:rollback'
+alias remigrate='migrate && rake db:rollback && migrate'
+alias killruby='pkill -f ruby'
+alias ss='spring stop'
+
+
+# Heroku 
+alias tail-logs='heroku logs -t'
+# Heroku staging
+alias staging-console='heroku run console --remote staging'
+alias staging-tail='heroku logs --tail --remote staging'
+# Heroku production
+alias production-console='heroku run console --remote production'
+alias production-tail='heroku logs --tail --remote production'
+# # Heroku databases
+alias db-pull-staging='development restore staging'
+alias db-pull-production='development restore production'
+alias db-copy-production-to-staging='staging restore production'
+
+# Vim
+alias v='vim'
+alias vi='vim'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
