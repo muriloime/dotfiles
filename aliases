@@ -42,6 +42,7 @@ alias bds='staging deploy'
 alias be='bundle exec'
 alias bsf='bin/rspec spec/features'
 alias bsm='bin/rspec spec/models'
+alias bsc='bin/rspec spec/controllers'
 alias bunbang='bundle install && !!'
 
 
