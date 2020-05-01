@@ -44,6 +44,7 @@ alias bsf='bin/rspec spec/features'
 alias bsm='bin/rspec spec/models'
 alias bsc='bin/rspec spec/controllers'
 alias bsj='bin/rspec spec/jobs'
+alias bsw='bin/rspec spec/workers'
 alias bunbang='bundle install && !!'
 
 
@@ -74,7 +75,9 @@ alias rollback='be rails db:rollback'
 alias remigrate='migrate && rails db:rollback && migrate'
 alias killruby='pkill -f ruby'
 alias ss='spring stop'
-
+# Rails audit
+alias baudit='bundle outdated --only-explicit --parseable'
+alias maudit='find app/models -type f -exec wc -l {} \; | sort -rn | head'
 
 # Heroku 
 alias tail-logs='heroku logs -t'
