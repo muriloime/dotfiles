@@ -187,13 +187,14 @@ fi
 # For a full list of active aliases, run `alias`.
 
 
+# add path to miniconda
+export PATH=~/miniconda3/bin:$PATH
+
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
-# add path to miniconda
-export PATH=~/miniconda3/bin:$PATH
 
 # fix error in eb ( aws ) 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
@@ -233,3 +234,6 @@ export RUBYOPT='-W:no-deprecated -W:no-experimental'
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+# mkdir .git/safe in the root of repositories you trust
+export PATH=".git/safe/../../bin:$PATH"
