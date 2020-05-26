@@ -14,7 +14,9 @@ ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
 sudo cp -rp bin/* /usr/local/bin/
+ln -sfn ~/code/dotfiles/bin/git-create-pull-request /usr/local/bin/git-create-pull-request
 chmod +x /usr/local/bin/git-*
+
 sudo cp -rp tmux/* ~/.tmux/
 chmod +x ~/.tmux/*.sh
 
