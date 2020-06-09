@@ -172,7 +172,7 @@ setopt no_beep
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code'
+  export EDITOR='code -w'
 fi
 
 # Compilation flags
@@ -227,8 +227,9 @@ export PATH=/usr/local/bin:$PATH
 export LANG=en_US.UTF-8
 
 
-# TODO: TEMP
-export RUBYOPT='-W:no-deprecated -W:no-experimental'
+# TODO: TEMP # removing this as it is giving too many errors
+# export RUBYOPT='-W:no-deprecated -W:no-experimental'
+
 
 # Adding these because of asdf 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
