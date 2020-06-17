@@ -147,7 +147,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-syntax-highlighting jsontools docker history git-flow brew)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew bundler osx fasd rake ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
