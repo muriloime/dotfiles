@@ -20,6 +20,9 @@ alias sed="sed -E"
 alias -g G='| grep'
 alias -g L='| less'
 alias -g M='| more'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g CP='| pbcopy'
 
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 
@@ -45,6 +48,8 @@ alias bsm='bin/rspec spec/models'
 alias bsc='bin/rspec spec/controllers'
 alias bsj='bin/rspec spec/jobs'
 alias bsw='bin/rspec spec/workers'
+alias rof='bin/rspec --only_failures'
+
 alias bunbang='bundle install && !!'
 
 
@@ -67,6 +72,7 @@ alias gcl='git clone'
 alias gcm="git commit -m"
 alias gco='git checkout'
 alias gad='git add --all .'
+alias gsweep='git branch --merged master | command grep -vE "^(\*|\s*develop\s*|\ \s*master\s*$)" | command xargs -n 1 git branch -d'
 
 # Rails
 alias rdm="rails db:migrate"
