@@ -1,3 +1,9 @@
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
+[color "branch"]
+  remote = yellow
 [user]
 	name = Murilo Vasconcelos
 	email = muriloime@gmail.com
@@ -16,7 +22,7 @@
 	uncommit = reset --soft HEAD^
 	aa = add --all
 	adp = add --patch
-	b = branch
+	b = "!git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(authorname) | (%(color:green)%(committerdate:relative)%(color:reset))| %(contents:subject) '" # | column -t -s '|'"
 	ri = rebase -i
 	sdot = status . --short --branch
 	stat = show --stat
