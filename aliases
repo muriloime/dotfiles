@@ -85,6 +85,10 @@ alias ss='spring stop'
 alias baudit='bundle outdated --only-explicit --parseable'
 alias maudit='find app/models -type f -exec wc -l {} \; | sort -rn | head'
 
+# Python 
+alias pyt='python3 -m pytest'
+alias pir='python3 -m pip install -r requirements'
+
 # Heroku 
 alias tail-logs='heroku logs -t'
 # Heroku staging
