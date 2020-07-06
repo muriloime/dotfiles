@@ -2,6 +2,7 @@
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
   alias a='ls -lrth --color'
+  alias open='xdg-open'
 elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
