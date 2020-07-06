@@ -1,22 +1,40 @@
 #!/bin/bash
+
+#### Symbolic link for dotfiles
+
+## only mac 
 ln -sfn ~/code/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
+ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/Library/Application\ Support/Code/User/
+
+## only linux
+ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/.config/Code/User/settings.json
+
+# vim, zsh
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
 ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
-ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
-ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
-ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
-ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 ln -sfn ~/code/dotfiles/rgrc ~/.rgrc
 ln -sfn ~/code/dotfiles/asdf ~/.asdf
+ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
+
+# rails
+ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
+ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
+ln -sfn ~/code/dotfiles/gemrc ~/.gemrc
+ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
+
+ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
+
+### GIT
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
-ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
+ln -sfn ~/code/dotfiles/bin/git-create-pull-request /usr/local/bin/git-create-pull-request
+
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
 
 sudo cp -rp bin/* /usr/local/bin/
-ln -sfn ~/code/dotfiles/bin/git-create-pull-request /usr/local/bin/git-create-pull-request
 chmod +x /usr/local/bin/git-*
 
+### tmux
 sudo cp -rp tmux/* ~/.tmux/
 chmod +x ~/.tmux/*.sh
 
