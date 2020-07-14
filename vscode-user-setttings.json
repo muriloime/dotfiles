@@ -1,14 +1,16 @@
 {
-    "ruby.rubocop.executePath": "/home/murilo/.rbenv/shims/",
-    "ruby.useBundler": true,
-    "window.zoomLevel": 0,
-    "editor.formatOnSave": true,
-    "files.autoSave": "afterDelay",
-    "explorer.confirmDragAndDrop": false,
-    "editor.formatOnSaveTimeout": 5000,
-    "ruby.intellisense": "rubyLocate",
-    "editor.codeLens": true,
-    "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "all",
-    "breadcrumbs.enabled": true
-  }
+  "ruby.rubocop.executePath": "/home/murilo/.rbenv/shims/",
+  "ruby.useBundler": true,
+  "window.zoomLevel": 0,
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+  "explorer.confirmDragAndDrop": false,
+  "editor.formatOnSaveTimeout": 5000,
+  "ruby.intellisense": "rubyLocate",
+  "editor.codeLens": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.shell.osx": "/bin/zsh"
+}
