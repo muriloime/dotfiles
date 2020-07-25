@@ -134,7 +134,6 @@ ensure_tmux_is_running
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
   
 # Add composer 
@@ -202,15 +201,14 @@ export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-export LUA_PATH='/home/mumu/.luarocks/share/lua/5.1/?.lua;/home/mumu/.luarocks/share/lua/5.1/?/init.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/share/lua/5.1/?.lua;./?.lua;/usr/local/lib/lua/5.1/?.lua;/usr/local/lib/lua/5.1/?/init.lua;/usr/share/lua/5.1/?/init.lua'
-export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?.so;./?.so;/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so'
+# export LUA_PATH='/home/mumu/.luarocks/share/lua/5.1/?.lua;/home/mumu/.luarocks/share/lua/5.1/?/init.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/share/lua/5.1/?.lua;./?.lua;/usr/local/lib/lua/5.1/?.lua;/usr/local/lib/lua/5.1/?/init.lua;/usr/share/lua/5.1/?/init.lua'
+# export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?.so;./?.so;/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so'
 
 # necessary for asdf autocomplete
 autoload bashcompinit
 bashcompinit
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# eval "$(rbenv init - --no-rehash)"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
@@ -221,9 +219,12 @@ fi
 # recommended by brew doctor
 export PATH=/usr/local/bin:$PATH
 
-. $(brew --prefix asdf)/asdf.sh
 
-. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+## MAC only 
+# . $(brew --prefix asdf)/asdf.sh
+# . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+
+
 export LANG=en_US.UTF-8
 
 
@@ -238,3 +239,8 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
+
+## RUBY config
+eval "$(rbenv init - --no-rehash)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
