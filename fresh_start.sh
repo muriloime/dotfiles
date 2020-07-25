@@ -3,8 +3,8 @@
 #### Symbolic link for dotfiles
 
 ## only mac 
-ln -sfn ~/code/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
-ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/Library/Application\ Support/Code/User/
+# ln -sfn ~/code/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
+# ln -sfn ~/code/dotfiles/vscode-use\\r-setttings.json ~/Library/Application\ Support/Code/User/
 
 ## only linux
 ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/.config/Code/User/settings.json
