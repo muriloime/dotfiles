@@ -12,5 +12,6 @@
   "editor.renderWhitespace": "all",
   "breadcrumbs.enabled": true,
   "terminal.integrated.shell.linux": "/bin/zsh",
-  "terminal.integrated.shell.osx": "/bin/zsh"
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "editor.fontFamily": "Menlo for Powerline"
 }
