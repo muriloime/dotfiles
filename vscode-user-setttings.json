@@ -1,5 +1,5 @@
 {
-  "ruby.rubocop.executePath": "/home/murilo/.rbenv/shims/",
+  "ruby.rubocop.executePath": "/usr/local/bin/rubocop-daemon-wrapper/",
   "ruby.useBundler": true,
   "window.zoomLevel": 0,
   "editor.formatOnSave": true,
@@ -13,5 +13,7 @@
   "breadcrumbs.enabled": true,
   "terminal.integrated.shell.linux": "/bin/zsh",
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "editor.fontFamily": "Menlo for Powerline"
+  "editor.fontFamily": "Menlo for Powerline",
+  "explorer.confirmDelete": false,
+  "workbench.sideBar.location": "right"
 }
