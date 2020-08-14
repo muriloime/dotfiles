@@ -24,6 +24,9 @@ ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
 
 ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 
+# espanso text expander 
+ln -sfn ~/code/dotfiles/espanso_default.yml ~/.config/espanso/default.yml
+
 ### GIT
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
