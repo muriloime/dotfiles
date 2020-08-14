@@ -15,5 +15,6 @@
   "terminal.integrated.shell.osx": "/bin/zsh",
   "editor.fontFamily": "Menlo for Powerline",
   "explorer.confirmDelete": false,
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "editor.tabSize": 2
 }
