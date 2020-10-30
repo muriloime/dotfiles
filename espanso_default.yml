@@ -17,7 +17,17 @@ matches:
   - trigger: ":tm"
     replace: "Thanks, Murilo"
 
-  # Websites
+  # Links
+  - trigger: ":zoom"
+    replace: "https://us02web.zoom.us/j/9794451847"
+
+  - trigger: ":calendly"
+    replace: "https://calendly.com/garagem"
+
+  - trigger: ":wby"
+    replace: "https://whereby.com/mva"
+
+    # Websites
   - trigger: ":aio"
     replace: "https://www.aio.com.br"
 
