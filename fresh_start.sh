@@ -58,7 +58,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 ##### GIT configurations
 
-git config --global init.templatedir '~/code/dotfiles/git_template'
+ln -sfn ~/code/dotfiles/git_template ~/.git_template
+git config --global init.templatedir '~/.git_template' 
+# git config --global init.templatedir '~/code/dotfiles/git_template'
 chmod a+x ~/code/dotfiles/git_template/hooks/*
 
 git config --global alias.co checkout
