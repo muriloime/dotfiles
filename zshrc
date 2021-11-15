@@ -22,6 +22,7 @@ export ZSH=~/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
+eval `dircolors ~/.dir_colors/dircolors`
 
 # load custom executable functions
 for function in ~/code/dotfiles/zsh/functions/*; do
@@ -146,7 +147,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin/"
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew bundler osx fasd rake ruby rails)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew bundler fasd rake ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -174,11 +175,6 @@ else
   export EDITOR='code -w'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -255,3 +251,7 @@ export PATH=".git/safe/../../bin:$PATH"
 eval "$(rbenv init - --no-rehash)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+
+export PAT=799f32b1f0b47ae06019c9067bf288a115178a94
+export PATH="$HOME/.poetry/bin:$PATH"

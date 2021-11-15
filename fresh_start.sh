@@ -21,6 +21,7 @@ ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
 ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
 ln -sfn ~/code/dotfiles/gemrc ~/.gemrc
 ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
+ln -sfn ~/code/dotfiles/rspecrc ~/.rspecrc
 
 ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 
