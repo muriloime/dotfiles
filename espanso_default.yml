@@ -40,8 +40,15 @@ matches:
   - trigger: ":l80"
     replace: "localhost:8080"
 
+  # dev
+  - trigger: ":pdb"
+    replace: "import pdb;pdb.set_trace()"
+
+  - trigger: ":pry"
+    replace: "binding.pry"
+
   # Dates
-  - trigger: ":date"
+  - trigger: "::date"
     replace: "{{mydate}}"
     vars:
       - name: mydate
