@@ -22,6 +22,8 @@ ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
 ln -sfn ~/code/dotfiles/gemrc ~/.gemrc
 ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
 ln -sfn ~/code/dotfiles/rspecrc ~/.rspecrc
+mkdir ~/.bundle
+ln -sfn ~/code/dotfiles/bundle_config ~/.bundle/config
 
 ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 
