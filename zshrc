@@ -6,12 +6,38 @@ fancy_echo() {
 }
 
 # Show contents of directory after cd-ing into it
-chpwd() {
-  ls -lrthG
+# chpwd() {
+#   ls -lrthG
+# }
+
+cdl()
+{
+  if [ "$#" = 0 ]; then
+    cd ~ && ls -lrthG
+  elif [ -d "$@" ]; then
+    cd "$@" && ls -lrthG
+  else
+    echo "$@" directory not found!!!
+  fi
 }
+
+# push to all repos recursively
+gpa()
+{
+  if [ "$#" = 0 ]; then
+    for dir in $(find . -name ".git"); do cd ${dir%/*}; git pull ; cd -; done
+  else
+    for dir in $(find $@ -name ".git"); do cd ${dir%/*}; git pull ; cd -; done
+  fi
+}
+
+
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# faster rubocop as per https://dev.to/doctolib/make-rubocop-20x-faster-in-5-min-4pjo
+export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -147,7 +173,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin/"
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew bundler fasd rake ruby rails)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails)
 
 source $ZSH/oh-my-zsh.sh
 
