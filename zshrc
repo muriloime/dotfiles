@@ -25,9 +25,9 @@ cdl()
 gpa()
 {
   if [ "$#" = 0 ]; then
-    for dir in $(find . -name ".git"); do cd ${dir%/*}; git pull ; cd -; done
+    for dir in $(find . -name ".git"); do cd ${dir%/*}; git push ; cd -; done
   else
-    for dir in $(find $@ -name ".git"); do cd ${dir%/*}; git pull ; cd -; done
+    for dir in $(find $@ -name ".git"); do cd ${dir%/*}; git push ; cd -; done
   fi
 }
 
