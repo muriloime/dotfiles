@@ -9,6 +9,7 @@
 	email = muriloime@gmail.com
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [alias]
 	co = checkout
 	br = branch
