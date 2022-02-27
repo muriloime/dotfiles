@@ -1,5 +1,3 @@
 --database=postgresql
---skip-test-unit
---skip-turbolinks
 --skip-active-storage
 --skip-action-text
