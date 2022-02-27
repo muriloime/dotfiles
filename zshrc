@@ -31,6 +31,10 @@ gpa()
   fi
 }
 
+deploy_ff() 
+{
+  gpa .. && b && g add Gemfile* && g ci -m "Update gems" && g push && g push heroku main && heroku run rake db:migrate -r heroku
+}  
 
 
 # If you come from bash you might have to change your $PATH.
