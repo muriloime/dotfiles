@@ -76,6 +76,8 @@ alias gad='git add --all .'
 alias gsweep='git branch --merged master | command grep -vE "^(\*|\s*develop\s*|\ \s*master\s*$)" | command xargs -n 1 git branch -d'
 
 # Rails
+
+alias rat="bin/rails test"
 alias rdm="rails db:migrate"
 alias migrate='be rails db:migrate db:test:prepare'
 alias rollback='be rails db:rollback'
