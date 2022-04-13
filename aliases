@@ -74,6 +74,7 @@ alias gcm="git commit -m"
 alias gco='git checkout'
 alias gad='git add --all .'
 alias gsweep='git branch --merged master | command grep -vE "^(\*|\s*develop\s*|\ \s*master\s*$)" | command xargs -n 1 git branch -d'
+alias gdd='g branch --merged | egrep -v "(^\\*|master|develop)" | xargs git branch -d'
 
 # Rails
 

@@ -47,7 +47,6 @@
 	po = push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 	pu = push -u
 	visual = !gitk
-	dd = branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d
 	brs= for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
 [push]
 	default = upstream
