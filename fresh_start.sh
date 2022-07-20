@@ -28,7 +28,7 @@ ln -sfn ~/code/dotfiles/bundle_config ~/.bundle/config
 ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 
 # espanso text expander 
-ln -sfn ~/code/dotfiles/espanso_default.yml ~/.config/espanso/default.yml
+ln -sfn ~/code/dotfiles/espanso_base.yml ~/.config/espanso/match/base.yml
 
 ### GIT
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig

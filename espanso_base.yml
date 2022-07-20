@@ -1,0 +1,49 @@
+matches:
+  - trigger: "\\mg"
+    replace: muriloime@gmail.com
+  - trigger: "\\ma"
+    replace: murilo@aio.com.br
+  - trigger: "\\tm"
+    replace: "Thanks, Murilo"
+  - trigger: "\\zoom"
+    replace: "https://us02web.zoom.us/j/9794451847"
+  - trigger: "\\calendly"
+    replace: "https://calendly.com/muriloaio"
+  - trigger: "\\aio"
+    replace: "https://www.aio.com.br"
+  - trigger: "\\l50"
+    replace: "localhost:5000"
+  - trigger: "\\l80"
+    replace: "localhost:8080"
+  - trigger: "\\pdb"
+    replace: import pdb;pdb.set_trace()
+  - trigger: "\\pry"
+    replace: binding.pry
+  - trigger: "\\date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y"
+  - trigger: "\\ydate"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+  - trigger: "\\time"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%d/%m/%Y %H:%M:%S"
+  - trigger: "\\shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: echo Hello from your shell
