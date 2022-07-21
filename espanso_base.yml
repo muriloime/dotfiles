@@ -1,13 +1,23 @@
 matches:
+  - trigger: "\\gf"
+    replace: https://mail.google.com/mail/u/1/?fs=1&tf=cm
   - trigger: "\\mg"
     replace: muriloime@gmail.com
   - trigger: "\\ma"
     replace: murilo@aio.com.br
-  - trigger: "\\tm"
+  - trigger: "\\ty"
     replace: "Thanks, Murilo"
+  - trigger: "\\att"
+    replace: "Atenciosamente, Murilo"
+  - trigger: "\\obg"
+    replace: "Desde já agradeço, Murilo"
+  - trigger: "\\meet"
+    replace: "Let me know when a good time to speak with is. If you like to go ahead and set up a time, my calendar is at https://calendly.com/muriloaio/"
+  - trigger: "\\reu"
+    replace: "Me avisa quando é um bom momento para falarmos. Se quiser já fixar um horário, meu calendário é https://calendly.com/muriloaio/"
   - trigger: "\\zoom"
     replace: "https://us02web.zoom.us/j/9794451847"
-  - trigger: "\\calendly"
+  - trigger: "\\cal"
     replace: "https://calendly.com/muriloaio"
   - trigger: "\\aio"
     replace: "https://www.aio.com.br"
