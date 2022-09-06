@@ -211,7 +211,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin/"
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails)
+plugins=(git zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -305,8 +305,8 @@ export LANG=en_US.UTF-8
 
 # Adding these because of asdf 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"
