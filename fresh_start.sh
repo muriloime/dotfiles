@@ -22,6 +22,7 @@ ln -sfn ~/code/dotfiles/irbrc ~/.irbrc
 ln -sfn ~/code/dotfiles/gemrc ~/.gemrc
 ln -sfn ~/code/dotfiles/railsrc ~/.railsrc
 ln -sfn ~/code/dotfiles/rspecrc ~/.rspecrc
+ln -sfn ~/code/dotfiles/aider.conf.yml ~/.aider.conf.yml
 mkdir ~/.bundle
 ln -sfn ~/code/dotfiles/bundle_config ~/.bundle/config
 
@@ -41,6 +42,7 @@ sudo cp -rp bin/* /usr/local/bin/
 chmod +x /usr/local/bin/git-*
 
 ### tmux
+sudo cp -rp ipython/* ~/.ipython/
 sudo cp -rp tmux/* ~/.tmux/
 chmod +x ~/.tmux/*.sh
 
@@ -76,7 +78,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.unstage "reset HEAD"
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-git config --global alias.brs "for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
+# git config --global alias.brs "for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'"
 git config --global alias.glog 'log -E -i --grep'
 git config --global alias.car 'commit --amend --no-edit'
 git config --global alias.uncommit 'reset --soft HEAD^'
@@ -129,5 +131,6 @@ git config --global merge.tool diffmerge
 
 
 
+# generate certificates 
 # load zshrc file
 source ~/.zshrc
