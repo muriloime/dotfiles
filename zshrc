@@ -74,8 +74,12 @@ rna ()
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# nim
+# export PATH=/home/murilo/.nimble/bin:$PATH
+
 # faster rubocop as per https://dev.to/doctolib/make-rubocop-20x-faster-in-5-min-4pjo
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
+export RUBOCOP_DAEMON_USE_BUNDLER=true
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -214,6 +218,7 @@ cdpath=($HOME/code $HOME/Documents)
 plugins=(git zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source "$HOME/.cargo/env"
 
 # Complete g like git
 compdef g=git
@@ -254,6 +259,9 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
+# PHP
+# export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
 
 # fix error in eb ( aws ) 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
@@ -272,8 +280,7 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# export LUA_PATH='/home/mumu/.luarocks/share/lua/5.1/?.lua;/home/mumu/.luarocks/share/lua/5.1/?/init.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/share/lua/5.1/?.lua;./?.lua;/usr/local/lib/lua/5.1/?.lua;/usr/local/lib/lua/5.1/?/init.lua;/usr/share/lua/5.1/?/init.lua'
-# export LUA_CPATH='/home/mumu/.luarocks/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/?.so;./?.so;/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so'
+
 
 # necessary for asdf autocomplete
 autoload bashcompinit
@@ -304,6 +311,7 @@ export LANG=en_US.UTF-8
 
 
 # Adding these because of asdf 
+export PATH=$PATH:~/.local/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 # export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
@@ -319,3 +327,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 export PAT=799f32b1f0b47ae06019c9067bf288a115178a94
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/murilo/code/aio/google-cloud-sdk/path.zsh.inc' ]; then . '/home/murilo/code/aio/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/murilo/code/aio/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/murilo/code/aio/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(/home/murilo/.local/bin/mise activate zsh)"

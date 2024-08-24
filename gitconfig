@@ -48,6 +48,7 @@
 	pu = push -u
 	visual = !gitk
 	brs= for-each-ref --sort=committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)'
+	dd = branch --merged | egrep -v \"(^\\*|master|develop)\" | xargs git branch -d
 [push]
 	default = upstream
 [fetch]
@@ -67,6 +68,7 @@
 [core]
 	autocrlf = input
 	excludesfile = /Users/murilo/.gitignore_global
+	editor = code --wait
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process

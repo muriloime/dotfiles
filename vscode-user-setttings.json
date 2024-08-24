@@ -1,5 +1,5 @@
 {
-  "ruby.rubocop.executePath": "/usr/local/bin/rubocop-daemon-wrapper/",
+  // "ruby.rubocop.executePath": "/usr/local/bin/rubocop-daemon-wrapper/",
   "ruby.useBundler": true,
   "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
@@ -41,7 +41,37 @@
     "haml": "html"
   },
   "tailwindCSS.emmetCompletions": true,
-  "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.unicodeHighlight.ambiguousCharacters": false
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "terminal.integrated.fontFamily": "Menlo for Powerline",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.enabled": true,
+  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
+  "editor.minimap.enabled": false,
+  "npm.keybindingsChangedWarningShown": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "update.showReleaseNotes": false,
+  "explorer.openEditors.visible": 10,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "githubPullRequests.terminalLinksHandler": "github",
+  "githubPullRequests.pullBranch": "never",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.colorTheme": "Spinel",
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [120],
+    "editor.semanticHighlighting.enabled": true
+  }
 }
