@@ -61,7 +61,6 @@
   "githubPullRequests.terminalLinksHandler": "github",
   "githubPullRequests.pullBranch": "never",
   "github.copilot.editor.enableAutoCompletions": true,
-  "workbench.colorTheme": "Spinel",
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
@@ -73,5 +72,12 @@
     "files.trimFinalNewlines": true,
     "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true
+  },
+  "notebook.formatOnSave.enabled": true,
+  "markdown-preview-enhanced.codeBlockTheme": "monokai.css",
+  "markdown-preview-enhanced.previewTheme": "night.css",
+  "notebook.editorOptionsCustomizations": {
+    "editor.tabSize": 2,
+    "editor.indentSize": 2
   }
 }
