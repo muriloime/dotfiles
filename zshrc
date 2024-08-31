@@ -325,7 +325,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
-export PAT=799f32b1f0b47ae06019c9067bf288a115178a94
+source ~/code/dotfiles/private_vars.sh
+
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
