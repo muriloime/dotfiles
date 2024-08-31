@@ -1,2 +1,6 @@
 *.swp
 tmux*.log
+
+
+private_vars.sh
+aider.conf.yml
