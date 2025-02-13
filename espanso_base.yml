@@ -7,6 +7,10 @@ matches:
     replace: murilo@aio.com.br
   - trigger: "\\ty"
     replace: "Thanks, Murilo"
+  - trigger: "\\qqd"
+    replace: "Qualquer dúvida, estamos à disposição, Murilo"
+  - trigger: "\\esqueci"
+    replace: "Nesse caso o mais simples é ir em www.aio.com.br/users/sign_in e clicar em esqueci minha senha. Você receberá um email com instruções imediatamente ( vale a pena checar a caixa de spam às vezes)"
   - trigger: "\\att"
     replace: "Atenciosamente, Murilo"
   - trigger: "\\obg"
@@ -22,9 +26,9 @@ matches:
   - trigger: "\\aio"
     replace: "https://www.aio.com.br"
   - trigger: "\\l50"
-    replace: "localhost:5000"
+    replace: "https://localhost:5000"
   - trigger: "\\l80"
-    replace: "localhost:8080"
+    replace: "http://localhost:8080"
   - trigger: "\\pdb"
     replace: import pdb;pdb.set_trace()
   - trigger: "\\pry"

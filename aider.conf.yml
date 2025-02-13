@@ -108,13 +108,14 @@ model: azure/o3-mini
 ## Add a model alias (can be used multiple times)
 alias:
   - "fast:azure/gpt-4o-mini"
-  - "default:azure/gpt-4o"
+  - "default:azure/aio-gpt4o"
   - "smart:azure/o3-mini"
+  - "o1:o1-preview"
   - "free:gemini/gemini-1.5-pro-latest"
   - "r1:sfd"
 
 ## Set the reasoning_effort API parameter (default: not set)
-reasoning-effort: high
+# reasoning-effort: high
 
 ## Verify the SSL cert when connecting to models (default: True)
 #verify-ssl: true
@@ -285,6 +286,7 @@ auto-commits: False
 lint-cmd:
   - "python: black"
   - "python: isort --profile black"
+  - "ruby: rubocop"
 #  - zzz
 
 # Testing/linting
