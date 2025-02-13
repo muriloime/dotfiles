@@ -36,6 +36,12 @@ deploy_ff()
   gpa .. && b && g add Gemfile* && g ci -m "Update gems" && g push && g push heroku main && heroku run rake db:migrate -r heroku
 }  
 
+path_append() {
+    if ! [[ ":$PATH:" == *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
 #
 # Usage :
 # $> rna myapp 7.0.0 --minimal --database=postgresql
@@ -71,8 +77,11 @@ rna ()
   bin/rails db:migrate
 }
 
+# faster rubocop as per https://dev.to/doctolib/make-rubocop-20x-faster-in-5-min-4pjo
+path_append "/usr/local/bin/rubocop-daemon-wrapper"
+
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+path_append $HOME/bin:/usr/local/bin
 
 # nim
 # export PATH=/home/murilo/.nimble/bin:$PATH
@@ -206,7 +215,7 @@ ensure_tmux_is_running
 
   
 # Add composer 
-export PATH="$PATH:$HOME/.composer/vendor/bin/"
+path_append "$HOME/.composer/vendor/bin/"
 
 
 # add cuda path for mxnet 
@@ -234,6 +243,9 @@ setopt no_beep
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# allow 4 GB of memory for node
+export NODE_OPTIONS=--max-old-space-size=4096
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -252,16 +264,15 @@ fi
 
 
 # add path to miniconda
-export PATH=~/miniconda3/bin:$PATH
+path_append ~/miniconda3/bin
 
-export PATH="$HOME/.bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
-# PHP
-# export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+path_append "$HOME/.bin"
+path_append "/usr/local/sbin"
+path_append "$HOME/.cargo/bin"
+path_append "/usr/local/opt/tcl-tk/bin"
 
+# path_append 
 
 # fix error in eb ( aws ) 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
@@ -294,9 +305,27 @@ if [ -f "$HOME/.laptop.local" ]; then
   . "$HOME/.laptop.local"
 fi
 
-# recommended by brew doctor
-export PATH=/usr/local/bin:$PATH
 
+## fabric config https://github.com/danielmiessler/fabric
+# Loop through all files in the ~/.config/fabric/patterns directory
+for pattern_file in $HOME/.config/fabric/patterns/*; do
+    # Get the base name of the file (i.e., remove the directory path)
+    pattern_name=$(basename "$pattern_file")
+
+    # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+    alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
+
+    # Evaluate the alias command to add it to the current shell
+    eval "$alias_command"
+done
+
+yt() {
+    local video_link="$1"
+    fabric -y "$video_link" --transcript
+}
+
+# recommended by brew doctor
+path_append /usr/local/bin
 
 ## MAC only 
 # . $(brew --prefix asdf)/asdf.sh
@@ -320,8 +349,8 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH=".git/safe/../../bin:$PATH"
 
 ## RUBY config
-eval "$(rbenv init - --no-rehash)"
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - --no-rehash)"
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
@@ -336,3 +365,4 @@ if [ -f '/home/murilo/code/aio/google-cloud-sdk/path.zsh.inc' ]; then . '/home/m
 if [ -f '/home/murilo/code/aio/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/murilo/code/aio/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(/home/murilo/.local/bin/mise activate zsh)"
+# export PATH="$PATH:/opt/mssql-tools/bin"

@@ -3,4 +3,5 @@ tmux*.log
 
 
 private_vars.sh
-aider.conf.yml
+# aider.conf.yml
+.aider*

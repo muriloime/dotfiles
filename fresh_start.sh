@@ -15,6 +15,7 @@ ln -sfn ~/code/dotfiles/vimrc ~/.vimrc
 ln -sfn ~/code/dotfiles/rgrc ~/.rgrc
 ln -sfn ~/code/dotfiles/asdf ~/.asdf
 ln -sfn ~/code/dotfiles/tmux.conf ~/.tmux.conf
+ln -sfn ~/code/dotfiles/aider.conf.yml ~/.aider.conf.yml 
 
 # rails
 ln -sfn ~/code/dotfiles/pryrc ~/.pryrc
