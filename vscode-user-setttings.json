@@ -1,69 +1,90 @@
 {
-  "ruby.useBundler": true,
   "editor.formatOnSave": true,
   "explorer.confirmDragAndDrop": false,
   "editor.formatOnSaveTimeout": 5000,
-  "ruby.intellisense": "rubyLocate",
+
   "editor.codeLens": true,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "all",
+
   "breadcrumbs.enabled": true,
+  
   "terminal.integrated.defaultProfile.linux": "/bin/zsh",
   "terminal.integrated.defaultProfile.osx": "/bin/zsh",
+  
   "editor.fontFamily": "Menlo for Powerline",
-  "explorer.confirmDelete": false,
-  "workbench.sideBar.location": "right",
   "editor.tabSize": 2,
   "files.eol": "\n",
-  "XXXruby.rubocop.executePath": "/usr/local/bin/rubocop-daemon-wrapper/",
-  "ruby.rubocop.suppressRubocopWarnings": true,
-  "ruby.rubocop.useBundler": true,
+  "workbench.sideBar.location": "right",
+  "window.menuBarVisibility": "visible",
+  "editor.inlineSuggest.enabled": true,
+  "files.autoSave": "onFocusChange",
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "explorer.openEditors.visible": 10,
+  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "explorer.confirmDelete": false,
+  
+
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "security.workspace.trust.untrustedFiles": "open",
+
   "jupyter.alwaysTrustNotebooks": true,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook"
   },
-  "security.workspace.trust.untrustedFiles": "open",
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "left"
   },
   "python.formatting.autopep8Args": ["--indent-size=2"],
-  "git.autofetch": true,
+  "[python]": {
+    "editor.formatOnType": true,
+    "diffEditor.ignoreTrimWhitespace": true
+  },
   "jupyter.askForKernelRestart": false,
-  "window.menuBarVisibility": "visible",
-  "editor.inlineSuggest.enabled": true,
-  "files.autoSave": "onFocusChange",
+  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
+  "notebook.editorOptionsCustomizations": {
+    "editor.tabSize": 4,
+    "editor.indentSize": 4,
+    "editor.insertSpaces": true
+  },
+  "notebook.formatOnSave.enabled": true,
+
+  "git.autofetch": true,
+  
   "tailwindCSS.includeLanguages": {
     "erb": "html",
     "haml": "html"
   },
   "tailwindCSS.emmetCompletions": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "terminal.integrated.fontFamily": "Menlo for Powerline",
+  
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editor.limit.value": 5,
-  "workbench.editor.limit.enabled": true,
-  "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
   "editor.minimap.enabled": false,
   "npm.keybindingsChangedWarningShown": true,
-  "[python]": {
-    "editor.formatOnType": true,
-    "diffEditor.ignoreTrimWhitespace": true
-  },
   "update.showReleaseNotes": false,
-  "explorer.openEditors.visible": 10,
-  "diffEditor.ignoreTrimWhitespace": false,
+
   "githubPullRequests.terminalLinksHandler": "github",
   "githubPullRequests.pullBranch": "never",
-  "github.copilot.editor.enableAutoCompletions": true,
+
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "ruby.rubocop.useBundler": true,
+  "ruby.useBundler": true,
+  "ruby.intellisense": "rubyLocate",
   "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.defaultFormatter": "rubocop.vscode-rubocop",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.rubocop": true,
+      "ruby.rubocopAutocorrect": "explicit"
+    },
+
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.tabSize": 2,
@@ -74,15 +95,26 @@
     "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true
   },
-  "notebook.formatOnSave.enabled": true,
+  
   "markdown-preview-enhanced.codeBlockTheme": "monokai.css",
   "markdown-preview-enhanced.previewTheme": "night.css",
-  "notebook.editorOptionsCustomizations": {
-    "editor.tabSize": 4,
-    "editor.indentSize": 4,
-    "editor.insertSpaces": true
-  },
+
   "diffEditor.maxComputationTime": 0,
-  "workbench.sideBar.location": "right",
-  "chat.editing.alwaysSaveWithGeneratedChanges": true
+
+  "github.copilot.editor.enableAutoCompletions": true,
+  "chat.editing.alwaysSaveWithGeneratedChanges": true,
+
+  "logViewer.watch": [
+    {
+      "title": "Session logs",
+      "pattern": "${workspaceFolder}/**/session.log"
+    }
+  ],
+  "workbench.panel.showLabels": false,
+  "logViewer.logLevel": "info",
+  "logViewer.options": {
+  },
+  "python.createEnvironment.trigger": "off",
+  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "terminal.integrated.fontFamily": "Menlo for Powerline"
 }
