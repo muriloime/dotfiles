@@ -23,7 +23,8 @@ alias -g L='| less'
 alias -g M='| more'
 alias -g H='| head'
 alias -g T='| tail'
-alias -g CP='| pbcopy'
+# alias -g CP='| pbcopy'
+alias -g CP='| xclip -selection clipboard' 
 
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 
