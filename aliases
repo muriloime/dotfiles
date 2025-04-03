@@ -94,6 +94,7 @@ alias maudit='find app/models -type f -exec wc -l {} \; | sort -rn | head'
 # Python 
 alias pyt='python3 -m pytest'
 alias pir='python3 -m pip install -r requirements.txt'
+alias python=python3
 
 # emulate mac
 alias pbpaste='xclip -selection clipboard -o'
