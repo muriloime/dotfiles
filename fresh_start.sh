@@ -6,8 +6,10 @@
 # ln -sfn ~/code/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
 # ln -sfn ~/code/dotfiles/vscode-use\\r-setttings.json ~/Library/Application\ Support/Code/User/
 
+
 ## only linux
 ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/.config/Code/User/settings.json
+sudo ln -sfn ~/code/dotfiles/hosts /etc/hosts 
 
 # vim, zsh
 ln -sfn ~/code/dotfiles/zshrc ~/.zshrc
@@ -31,6 +33,14 @@ ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 
 # espanso text expander 
 ln -sfn ~/code/dotfiles/espanso_base.yml ~/.config/espanso/match/base.yml
+
+# mise
+mkdir -p ~/.config/mise
+ln -sfn ~/code/dotfiles/dotfiles/mise.toml ~/.config/mise/config.toml
+
+# llm 
+mkdir -p "$(dirname "$(llm logs path)")/azure"
+ln -sfn ~/code/dotfiles/dotfiles/llm-azure.yaml "$(dirname "$(llm logs path)")/azure/config.yaml"
 
 ### GIT
 ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig

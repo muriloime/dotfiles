@@ -90,6 +90,10 @@ path_append $HOME/bin:/usr/local/bin
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 export RUBOCOP_DAEMON_USE_BUNDLER=true
 
+# node options to avoid tailwind breaking
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -99,7 +103,9 @@ export ZSH=~/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
-eval `dircolors ~/.dir_colors/dircolors`
+# eval `dircolors ~/.dir_colors/dircolors`
+eval "$(dircolors -b ~/.dir_colors)"
+
 
 # load custom executable functions
 for function in ~/code/dotfiles/zsh/functions/*; do
@@ -148,7 +154,7 @@ done
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # Add this to your zshrc or bzshrc file
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
+_not_inside_tmux() { [[ -z "$TMUX" ]]; }
 
 ensure_tmux_is_running() {
 	if _not_inside_tmux; then
@@ -269,13 +275,21 @@ path_append ~/miniconda3/bin
 
 path_append "$HOME/.bin"
 path_append "/usr/local/sbin"
+
+# rust
 path_append "$HOME/.cargo/bin"
 path_append "/usr/local/opt/tcl-tk/bin"
+# GO
+path_append "/usr/local/go/bin"
+path_append "$HOME/go/bin"
+
+# PHP
+# export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # path_append 
 
 # fix error in eb ( aws ) 
-export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
 
 pasteinit() {
@@ -357,6 +371,9 @@ eval "$(rbenv init - --no-rehash)"
 source ~/code/dotfiles/private_vars.sh
 
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+# export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/murilo/code/aio/google-cloud-sdk/path.zsh.inc' ]; then . '/home/murilo/code/aio/google-cloud-sdk/path.zsh.inc'; fi
@@ -366,3 +383,10 @@ if [ -f '/home/murilo/code/aio/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 
 eval "$(/home/murilo/.local/bin/mise activate zsh)"
 # export PATH="$PATH:/opt/mssql-tools/bin"
+
+
+# disable crewai telemetry
+export OTEL_SDK_DISABLED=true
+export ANONYMIZED_TELEMETRY=false
+export LANGCHAIN_TRACING_V2=false
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

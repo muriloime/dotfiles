@@ -1,21 +1,21 @@
 {
-  "editor.formatOnSave": true,
+  // "ruby.rubocop.executePath": "/usr/local/bin/rubocop-daemon-wrapper/",
   "explorer.confirmDragAndDrop": false,
   "editor.formatOnSaveTimeout": 5000,
 
   "editor.codeLens": true,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "all",
-
-  "breadcrumbs.enabled": true,
-  
-  "terminal.integrated.defaultProfile.linux": "/bin/zsh",
-  "terminal.integrated.defaultProfile.osx": "/bin/zsh",
-  
   "editor.fontFamily": "Menlo for Powerline",
   "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+
+  "breadcrumbs.enabled": true,
+
+  "terminal.integrated.defaultProfile.linux": "/bin/zsh",
+  "terminal.integrated.defaultProfile.osx": "/bin/zsh",
+
   "files.eol": "\n",
-  "workbench.sideBar.location": "right",
   "window.menuBarVisibility": "visible",
   "editor.inlineSuggest.enabled": true,
   "files.autoSave": "onFocusChange",
@@ -24,10 +24,11 @@
   "explorer.openEditors.visible": 10,
   "workbench.editor.limit.value": 5,
   "workbench.editor.limit.enabled": true,
+  "workbench.sideBar.location": "right",
+
   "diffEditor.ignoreTrimWhitespace": false,
 
   "explorer.confirmDelete": false,
-  
 
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -57,13 +58,13 @@
   "notebook.formatOnSave.enabled": true,
 
   "git.autofetch": true,
-  
+
   "tailwindCSS.includeLanguages": {
     "erb": "html",
     "haml": "html"
   },
   "tailwindCSS.emmetCompletions": true,
-  
+
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -78,6 +79,7 @@
   "ruby.rubocop.useBundler": true,
   "ruby.useBundler": true,
   "ruby.intellisense": "rubyLocate",
+
   "[ruby]": {
     "editor.defaultFormatter": "rubocop.vscode-rubocop",
     "editor.codeActionsOnSave": {
@@ -95,13 +97,12 @@
     "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true
   },
-  
+
   "markdown-preview-enhanced.codeBlockTheme": "monokai.css",
   "markdown-preview-enhanced.previewTheme": "night.css",
 
   "diffEditor.maxComputationTime": 0,
 
-  "github.copilot.editor.enableAutoCompletions": true,
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
 
   "logViewer.watch": [
@@ -112,9 +113,17 @@
   ],
   "workbench.panel.showLabels": false,
   "logViewer.logLevel": "info",
-  "logViewer.options": {
-  },
+  "logViewer.options": {},
   "python.createEnvironment.trigger": "off",
+  "terminal.integrated.fontFamily": "Menlo for Powerline",
+
+  "explorer.openEditors.minVisible": 4,
+
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
+  "markdown-preview-enhanced.scrollSync": false,
   "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
-  "terminal.integrated.fontFamily": "Menlo for Powerline"
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.nextEditSuggestions.enabled": false
 }
