@@ -7,6 +7,9 @@
 # ln -sfn ~/code/dotfiles/vscode-use\\r-setttings.json ~/Library/Application\ Support/Code/User/
 
 
+chmod +x bash_scripts/*.py
+chmod +x bash_scripts/*.sh
+
 ## only linux
 ln -sfn ~/code/dotfiles/vscode-user-setttings.json ~/.config/Code/User/settings.json
 sudo ln -sfn ~/code/dotfiles/hosts /etc/hosts 

@@ -1,0 +1,13 @@
+# See `man hosts` for details.
+#
+# By default, systemd-resolved or libnss-myhostname will resolve
+# localhost and the system hostname if they're not specified here.
+127.0.0.1	localhost
+::1		localhost
+127.0.0.1       chess.com
+127.0.0.1       www.chess.com
+127.0.0.1       www.fogaonet.com
+127.0.0.1       ge.globo
+127.0.0.1       ge.globo.com
+127.0.0.1       telemetry.crewai.com
+127.0.0.1       lichess.org
