@@ -5,7 +5,12 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-CODE_MODEL = "azure/gpt-4.1"
+# CODE_MODEL = "azure/gpt-4.1"
+CODE_MODEL = "azure/o4-mini"  # Defaulting to a capable model for code generation
+
+DO_NOT_FOLLOW_UP_COMMENT = (
+    "All of this is straigghtforward. Do now ask follow-up questions, just do it. "
+)
 
 
 class AiderClient:
@@ -96,6 +101,8 @@ class AiderClient:
             command.extend(["--file", f_path])
 
         command.extend(["--model", model])
+        command.extend(["--weak-model", model])
+        command.extend(["--reasoning-effort", "high"])
 
         if stream:
             command.append("--stream")
@@ -121,9 +128,100 @@ class AiderClient:
             f"Ensure the tests cover all complex public methods and edge cases. "
             f"If a spec file ('{spec_file_name_for_prompt}') is provided or implied, "
             f"add the new tests to it, or create it if it doesn't exist. "
-            f"Focus on creating relevant and robust tests."
+            f"Focus on creating relevant and robust tests. "
+            f"#{DO_NOT_FOLLOW_UP_COMMENT}"
         )
         command.extend(["--message", message])
+
+        return self._execute_command(command)
+
+    def generate_component(
+        self,
+        view_component_path: str,
+        controller_action_path: str,  # e.g., "users#show"
+        additional_files: Optional[List[str]] = None,
+        model: str = CODE_MODEL,
+        stream: bool = True,
+        auto_commits: bool = False,
+        dry_run: bool = False,
+        yes: bool = True,
+    ) -> str:
+        """
+        Generates or updates a ViewComponent and its HAML template using aider.
+
+        Args:
+            view_component_path: Path to the Ruby ViewComponent file (e.g., 'app/components/users/profile_component.rb').
+                                 This file will be created or updated by aider.
+            controller_action_path: String indicating the controller and action for context (e.g., 'users#show').
+            additional_files: List of other relevant files to include in aider's context
+                              (e.g., the controller file or the original action view).
+            model: The language model to use.
+            stream: Whether to stream responses.
+            auto_commits: Whether to enable auto-commits.
+            dry_run: Whether to perform a dry run.
+            yes: Whether to automatically say yes to confirmations.
+
+        Returns:
+            The output from the aider command.
+        """
+        command = [self.aider_path]
+
+        component_rb_path = Path(view_component_path)
+        component_haml_path = component_rb_path.with_suffix(".html.haml")
+        view_path = [
+            x for x in additional_files if x.endswith(".haml") or x.endswith(".erb")
+        ][0]
+
+        # These files are the primary targets for aider. Aider will create them if they don't exist.
+        files_to_include = [str(component_rb_path), str(component_haml_path)]
+
+        if additional_files:
+            # Ensure additional files are strings, as Path objects might be passed
+            files_to_include.extend([str(f) for f in additional_files])
+
+        for f_path in files_to_include:
+            command.extend(["--file", f_path])
+
+        command.extend(["--model", model])
+        command.extend(["--weak-model", model])
+
+        if stream:
+            command.append("--stream")
+        else:
+            command.append("--no-stream")
+
+        if auto_commits:
+            command.append("--auto-commits")
+        else:
+            command.append("--no-auto-commits")
+
+        if dry_run:
+            command.append("--dry-run")
+
+        if yes:
+            command.append("--yes")
+
+        component_rb_filename = component_rb_path.name
+        component_haml_filename = component_haml_path.name
+
+        message = (
+            f"We are moving logic from rails view/controller to a ViewComponent. "
+            f"Create the ViewComponent defined in '{component_rb_filename}' and its corresponding HAML template '{component_haml_filename}'. "
+            f"This component is intended to replace the logic and view code from the '{controller_action_path}' controller action. "
+            f"Ensure the Ruby component class in '{component_rb_filename}' is well-structured, accepts necessary parameters, and "
+            f"extracts the view-related controller logic into methods as needed "
+            f"(do not migrate redirect logic, of course). "
+            f"Also ensure the HAML file in '{component_haml_filename}' is valid and reflects exactly the same code (including comments, if any) from the file '{view_path}'. "
+            f'Do not forget to update the controller file, removing the code moved to the component and rendering it like "render ComponentClass.new(...)".'
+            f"#{DO_NOT_FOLLOW_UP_COMMENT}"
+        )
+        command.extend(["--message", message])
+        print(">>>>>")
+        print(">>>>>")
+        print(files_to_include)
+        print(f"Executing command: {' '.join(command)}")
+        print(">>>>>")
+        print(">>>>>")
 
         return self._execute_command(command)
 
@@ -195,6 +293,8 @@ class AiderClient:
             command.extend(["--file", str(f_path)])
 
         command.extend(["--model", model])
+        command.extend(["--weak-model", model])
+        command.extend(["--reasoning-effort", "high"])
 
         if stream:
             command.append("--stream")
@@ -248,6 +348,7 @@ class AiderClient:
             f"If '{output_yml_filename}' already exists, intelligently merge the new translations, "
             f"preserving existing content and structure where possible."
             f'Update the haml (and/or erb) file(s) using the helper method, e.g. t(".original_text"), '
+            f"#{DO_NOT_FOLLOW_UP_COMMENT}"
         )
         command.extend(["--message", message])
 

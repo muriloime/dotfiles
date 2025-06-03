@@ -24,11 +24,15 @@ def find_spec_file(ruby_file_path: str) -> Optional[str]:
         # Attempt to find spec file for non-standard paths (e.g. lib/)
         # This assumes spec file is in a parallel 'spec' directory
         # e.g. lib/foo/bar.rb -> spec/lib/foo/bar_spec.rb
-        relative_path_from_project_root = (
-            Path(*p.parts[p.parts.index("lib") :])
-            if "lib" in p.parts
-            else Path(p.name)  # Ensure it's a Path object
-        )
+        relative_path_from_project_root: Path
+        if "lib" in p.parts:
+            # Find the first occurrence of 'lib' and take parts from there
+            lib_index = p.parts.index("lib")
+            path_parts_from_lib = p.parts[lib_index:]
+            relative_path_from_project_root = Path(*path_parts_from_lib)
+        else:
+            # If 'lib' is not in path, use the filename as the base for relative path
+            relative_path_from_project_root = Path(p.name)
         spec_file_name = f"{p.stem}_spec.rb"
 
         # Search upwards for a 'spec' directory
