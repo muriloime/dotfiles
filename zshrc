@@ -21,6 +21,7 @@ cdl()
   fi
 }
 
+
 # push to all repos recursively
 gpa()
 {
@@ -221,7 +222,7 @@ ensure_tmux_is_running
 
   
 # Add composer 
-path_append "$HOME/.composer/vendor/bin/"
+# path_append "$HOME/.composer/vendor/bin/"
 
 
 # add cuda path for mxnet 
@@ -322,16 +323,16 @@ fi
 
 ## fabric config https://github.com/danielmiessler/fabric
 # Loop through all files in the ~/.config/fabric/patterns directory
-for pattern_file in $HOME/.config/fabric/patterns/*; do
-    # Get the base name of the file (i.e., remove the directory path)
-    pattern_name=$(basename "$pattern_file")
+# for pattern_file in $HOME/.config/fabric/patterns/*; do
+#     # Get the base name of the file (i.e., remove the directory path)
+#     pattern_name=$(basename "$pattern_file")
 
-    # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
-    alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
+#     # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
+#     alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
 
-    # Evaluate the alias command to add it to the current shell
-    eval "$alias_command"
-done
+#     # Evaluate the alias command to add it to the current shell
+#     eval "$alias_command"
+# done
 
 yt() {
     local video_link="$1"
@@ -390,3 +391,9 @@ export OTEL_SDK_DISABLED=true
 export ANONYMIZED_TELEMETRY=false
 export LANGCHAIN_TRACING_V2=false
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+# path_append "$HOME/code/dotfiles/bash_scripts"
+export PATH="$HOME/code/dotfiles/bash_scripts:$PATH"
+
+echo "ZSH configuration loaded successfully!"

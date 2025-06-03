@@ -5,3 +5,6 @@ tmux*.log
 private_vars.sh
 # aider.conf.yml
 .aider*
+
+
+__pycache__/
