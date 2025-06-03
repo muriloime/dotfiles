@@ -5,7 +5,6 @@ aider \
     --model o3-mini \
     --architect \
     --reasoning-effort high \
-    --editor-model sonnet \
     --no-detect-urls \
     --no-auto-commit \
     --yes-always \
@@ -17,7 +16,6 @@ aider \
     --model o3-mini \
     --architect \
     --reasoning-effort high \
-    --editor-model sonnet \
     --no-detect-urls \
     --no-auto-commit \
     --yes-always \
