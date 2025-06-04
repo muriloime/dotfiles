@@ -353,3 +353,91 @@ class AiderClient:
         command.extend(["--message", message])
 
         return self._execute_command(command)
+
+    def prettify_component(
+        self,
+        component_rb_file: str,
+        component_haml_file: str,
+        image_file: str,
+        additional_files: Optional[List[str]] = None,
+        model: str = CODE_MODEL,
+        stream: bool = True,
+        auto_commits: bool = False,
+        dry_run: bool = False,
+        yes: bool = True,
+    ) -> str:
+        """
+        Uses Aider to "prettify" a ViewComponent based on its code and an image.
+
+        Args:
+            component_rb_file: Path to the Ruby ViewComponent file.
+            component_haml_file: Path to the HAML template for the component.
+            image_file: Path to an image of the component.
+            additional_files: List of other relevant files.
+            model: The language model to use.
+            stream: Whether to stream responses.
+            auto_commits: Whether to enable auto-commits.
+            dry_run: Whether to perform a dry run.
+            yes: Whether to automatically say yes to confirmations.
+
+        Returns:
+            The output from the aider command.
+        """
+        command = [self.aider_path]
+
+        files_to_include = [component_rb_file, component_haml_file, image_file]
+        if additional_files:
+            files_to_include.extend(additional_files)
+
+        for f_path in files_to_include:
+            # Ensure Path objects are converted to strings if they come from additional_files
+            command.extend(["--file", str(f_path)])
+
+        command.extend(["--model", model])
+        # Vision capable models might have different "weak" model considerations,
+        # but for now, let's keep it consistent or rely on aider's defaults if weak-model is not set.
+        # command.extend(["--weak-model", model]) # Optional: consider if needed for vision models
+        command.extend(["--reasoning-effort", "high"])
+
+        if stream:
+            command.append("--stream")
+        else:
+            command.append("--no-stream")
+
+        if auto_commits:
+            command.append("--auto-commits")
+        else:
+            command.append("--no-auto-commits")
+
+        if dry_run:
+            command.append("--dry-run")
+
+        if yes:
+            command.append("--yes")
+
+        component_rb_filename = Path(component_rb_file).name
+        component_haml_filename = Path(component_haml_file).name
+        image_filename = Path(image_file).name
+
+        message = (
+            f"You are tasked with improving the visual appeal of a Ruby on Rails ViewComponent. "
+            f"I have provided the component's Ruby file ('{component_rb_filename}'), "
+            f"its HAML template ('{component_haml_filename}'), "
+            f"and a current screenshot of the component ('{image_filename}').\n\n"
+            f"Your goal is to make the component look 'prettier' and more modern by applying design best practices. "
+            f"This may involve changes to the HAML structure, styling (by suggesting CSS classes or, if simple and necessary, inline styles), "
+            f"and potentially minor adjustments to the Ruby component file if data or logic needs to support the new design.\n\n"
+            f"Key considerations:\n"
+            f"1. Analyze the current design from the screenshot ('{image_filename}').\n"
+            f"2. Modify '{component_haml_filename}' to implement the visual improvements. Focus on layout, spacing, typography, color contrast (if applicable and simple), and overall user experience.\n"
+            f"3. Use TailwindCSS v4.\n"
+            f"4. If changes in the HAML require adjustments to how data is passed or prepared in the Ruby component, update '{component_rb_filename}' accordingly.\n"
+            f"5. Strive to maintain the core functionality and purpose of the component. The fundamental HTML structure should be preserved where possible, enhancing it rather than completely overhauling it unless necessary for a significant design improvement.\n"
+            f"6. Ensure the HAML remains valid and the Ruby code is correct.\n\n"
+            f"Apply the changes directly to the provided files ('{component_rb_filename}' and '{component_haml_filename}'). "
+            f"#{DO_NOT_FOLLOW_UP_COMMENT}"
+        )
+        command.extend(["--message", message])
+
+        logger.info(f"Executing Aider command for prettifying: {' '.join(command)}")
+        return self._execute_command(command)
