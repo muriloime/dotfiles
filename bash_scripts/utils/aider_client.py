@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 CODE_MODEL = "azure/o4-mini"  # Defaulting to a capable model for code generation
 
 DO_NOT_FOLLOW_UP_COMMENT = (
-    "All of this is straigghtforward. Do now ask follow-up questions, just do it. "
+    "All of this is straightforward. Do now ask follow-up questions, just do it. "
 )
 
 
@@ -129,7 +129,7 @@ class AiderClient:
             f"If a spec file ('{spec_file_name_for_prompt}') is provided or implied, "
             f"add the new tests to it, or create it if it doesn't exist. "
             f"Focus on creating relevant and robust tests. "
-            f"#{DO_NOT_FOLLOW_UP_COMMENT}"
+            f"{DO_NOT_FOLLOW_UP_COMMENT}"
         )
         command.extend(["--message", message])
 
@@ -326,8 +326,7 @@ class AiderClient:
         if len(languages) > 1:
             example_lang2_part = (
                 f"{languages[1]}:\n"
-                f"  {component_scope_key}:\n"
-                f'    example_key: "Translated example text in {languages[1]}"\n'
+                f'  example_key: "Translated example text in {languages[1]}"\n'
             )
         else:
             example_lang2_part = f"# (Translations for other specified languages would follow a similar pattern)\n"
@@ -415,9 +414,9 @@ class AiderClient:
         if yes:
             command.append("--yes")
 
-        component_rb_filename = Path(component_rb_file).name
-        component_haml_filename = Path(component_haml_file).name
-        image_filename = Path(image_file).name
+        component_rb_filename = Path(component_rb_file).name.strip()
+        component_haml_filename = Path(component_haml_file).name.strip()
+        image_filename = Path(image_file).name.strip()
 
         message = (
             f"You are tasked with improving the visual appeal of a Ruby on Rails ViewComponent. "
