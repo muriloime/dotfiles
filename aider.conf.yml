@@ -129,17 +129,17 @@ alias:
 ## Use architect edit format for the main chat
 #architect: false
 
+##### Models
 ## Specify the model to use for commit messages and chat history summarization (default depends on --model)
-#weak-model: xxx
-
+weak-model: fast
 ## Specify the model to use for editor tasks (default depends on --model)
-#editor-model: xxx
+editor-model: azure/gpt-4.1
 
 ## Specify the edit format for the editor model (default: depends on editor model)
 #editor-edit-format: xxx
 
 ## Only work with models that have meta-data available (default: True)
-#show-model-warnings: true
+show-model-warnings: false
 
 ## Soft limit on tokens for chat history, after which summarization begins. If unspecified, defaults to the model's max_chat_history_tokens.
 #max-chat-history-tokens: xxx
@@ -318,8 +318,7 @@ yes-always: True
 #just-check-update: false
 
 ## Check for new aider versions on launch
-#check-update: true
-
+check-update: true
 ## Show release notes on first run of new version (default: None, ask user)
 #show-release-notes: xxx
 
