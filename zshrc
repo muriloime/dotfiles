@@ -156,9 +156,10 @@ done
 
 # Add this to your zshrc or bzshrc file
 _not_inside_tmux() { [[ -z "$TMUX" ]]; }
+_is_not_vscode() { [[ -z "$VSCODE_PID" ]] }
 
 ensure_tmux_is_running() {
-	if _not_inside_tmux; then
+	if _not_inside_tmux && _is_not_vscode; then
 		tat
 	fi
 }
@@ -287,6 +288,7 @@ path_append "$HOME/go/bin"
 # PHP
 # export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
+path_append "$HOME/code/dotfiles/bash_scripts"
 # path_append 
 
 # fix error in eb ( aws ) 
