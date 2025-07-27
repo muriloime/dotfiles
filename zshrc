@@ -307,8 +307,11 @@ cleandisk() {
   rm -rf ~/.cache/solargraph
   rm -rf ~/.cache/ms-playwright
 
+  echo "Cleaning PYTHON cache..."
+  
   uv cache clean
   poetry cache clear PyPI --all
+  pip cache purge
 
   echo "Disk cleanup complete."
 }
