@@ -295,6 +295,24 @@ path_append "$HOME/code/dotfiles/bash_scripts"
 # export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
 
+cleandisk() {
+  echo "Cleaning up disk space..."
+  sudo apt-get clean
+  sudo apt-get autoclean
+  sudo apt-get autoremove
+  
+  sudo rm -rf /var/cuda-repo-ubuntu2204-12-8-local
+  sudo rm /etc/apt/sources.list.d/cuda-ubuntu2204-12-8-local.list
+
+  rm -rf ~/.cache/solargraph
+  rm -rf ~/.cache/ms-playwright
+
+  uv cache clean
+  poetry cache clear PyPI --all
+
+  echo "Disk cleanup complete."
+}
+
 pasteinit() {
   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
   zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
