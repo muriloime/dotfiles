@@ -232,7 +232,7 @@ ensure_tmux_is_running
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails zsh-syntax-highlighting dotenv)
 
 source $ZSH/oh-my-zsh.sh
 source "$HOME/.cargo/env"
