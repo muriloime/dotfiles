@@ -37,6 +37,7 @@ ln -sfn ~/code/dotfiles/psqlrc ~/.psqlrc
 # espanso text expander 
 ln -sfn ~/code/dotfiles/espanso_base.yml ~/.config/espanso/match/base.yml
 
+
 # mise
 mkdir -p ~/.config/mise
 ln -sfn ~/code/dotfiles/dotfiles/mise.toml ~/.config/mise/config.toml
@@ -51,6 +52,13 @@ ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
 ln -sfn ~/code/dotfiles/bin/git-create-pull-request /usr/local/bin/git-create-pull-request
 
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
+
+### CLAUDE
+mkdir -p ~/.claude
+
+ln -sfn ~/code/dotfiles/claude/hooks ~/.claude
+ln -sfn ~/code/dotfiles/claude/commands ~/.claude
+ln -sfn ~/code/dotfiles/claude/agents ~/.claude
 
 sudo cp -rp bin/* /usr/local/bin/
 chmod +x /usr/local/bin/git-*
