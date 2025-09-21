@@ -425,5 +425,16 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+echo_green() {
+  fancy_echo "\033[1;32m$1\033[0m"
+}
+echo_red() {
+  fancy_echo "\033[1;31m$1\033[0m"
+}
 
-echo "ZSH configuration loaded successfully!"
+echo_yellow() {
+  fancy_echo "\033[1;33m$1\033[0m"
+}
+
+echo_green "✔ ZSH configuration loaded successfully!"
+
