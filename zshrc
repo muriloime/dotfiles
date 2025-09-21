@@ -419,4 +419,11 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # path_append "$HOME/code/dotfiles/bash_scripts"
 export PATH="$HOME/code/dotfiles/bash_scripts:$PATH"
 
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+
 echo "ZSH configuration loaded successfully!"
