@@ -43,16 +43,16 @@ alias rerake='!! && rake'
 
 # Bundler
 alias b="bundle"
-alias br='bin/rspec'
+alias br='RAILS_ENV=test bin/rspec'
 alias bdp='production deploy'
 alias bds='staging deploy'
 alias be='bundle exec'
-alias bsf='bin/rspec spec/features'
-alias bsm='bin/rspec spec/models'
-alias bsc='bin/rspec spec/controllers'
-alias bsj='bin/rspec spec/jobs'
-alias bsw='bin/rspec spec/workers'
-alias rof='bin/rspec --only_failures'
+alias bsf='RAILS_ENV=test bin/rspec spec/features'
+alias bsm='RAILS_ENV=test bin/rspec spec/models'
+alias bsc='RAILS_ENV=test bin/rspec spec/controllers'
+alias bsj='RAILS_ENV=test bin/rspec spec/jobs'
+alias bsw='RAILS_ENV=test bin/rspec spec/workers'
+alias rof='RAILS_ENV=test bin/rspec --only_failures'
 
 alias bunbang='bundle install && !!'
 
