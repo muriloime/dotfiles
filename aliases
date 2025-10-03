@@ -7,7 +7,7 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
-alias cld="claude --dangerously-skip-permissions"
+alias cld="AWS_PROFILE=claude_code claude --dangerously-skip-permissions"
 
 alias qq="cd . && source ~/.zshrc"
 alias cp="cp -iv"
