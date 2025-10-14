@@ -1,7 +1,6 @@
 ---
 description: Search the codebase for files needed to complete the task
 argument-hint: [user-prompt] [scale]
-model: claude-sonnet-4-5-20250929
 ---
 
 # Purpose
@@ -26,7 +25,7 @@ RELEVANT_FILE_OUTPUT_DIR: `agents/scout_files/`
 - Write a prompt for `SCALE` number of agents to the Task tool that will immediately call the Bash tool to run these commands to kick off your agents to conduct the search:
 
   - `gemini -p "[prompt]" --model gemini-2.5-flash`
-  - `opencode run [prompt] --model zai-coding-plan/glm-4.6` (if count >= 2)
+  - `crush run [prompt] --model zai-coding-plan/glm-4.6` (if count >= 2)
 
 - How to prompt the agents:
   - IMPORTANT: Kick these agents off in parallel using the Task tool.
