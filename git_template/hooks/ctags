@@ -2,9 +2,9 @@
 set -e
 PATH="/usr/local/bin:$PATH"
 
-trap 'rm -f "$$.tags"' EXIT
-git ls-files | grep -v 'vendor/assets/javascripts' | \
-  ctags --exclude=.git --exclude=node_modules --exclude=.idea --exclude=tmp --exclude=vendor --exclude=log --tag-relative -L - -f"$$.tags"  
-#--languages=-javascript,sql
-mv "$$.tags" "tags"
-echo "ctags updated"
+# trap 'rm -f "$$.tags"' EXIT
+# git ls-files | grep -v 'vendor/assets/javascripts' | \
+#   ctags --exclude=.git --exclude=node_modules --exclude=.idea --exclude=tmp --exclude=vendor --exclude=log --tag-relative -L - -f"$$.tags"  
+# #--languages=-javascript,sql
+# mv "$$.tags" "tags"
+# echo "ctags updated"
