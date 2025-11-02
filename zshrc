@@ -156,7 +156,9 @@ done
 
 # Add this to your zshrc or bzshrc file
 _not_inside_tmux() { [[ -z "$TMUX" ]]; }
-_is_not_vscode() { [[ -z "$VSCODE_PID" ]] }
+_is_not_vscode() { 
+  [[ -z "$VSCODE_PID" ]] && [[ -z "$VSCODE_INJECTION" ]] && [[ "$TERM_PROGRAM" != "vscode" ]]
+}
 
 ensure_tmux_is_running() {
 	if _not_inside_tmux && _is_not_vscode; then
