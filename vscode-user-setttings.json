@@ -22,9 +22,8 @@
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "explorer.openEditors.visible": 10,
-  "workbench.editor.limit.value": 5,
+  "workbench.editor.limit.value": 8,
   "workbench.editor.limit.enabled": true,
-  "workbench.sideBar.location": "right",
 
   "diffEditor.ignoreTrimWhitespace": false,
 
@@ -37,7 +36,9 @@
 
   "jupyter.alwaysTrustNotebooks": true,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.ipynb": "jupyter-notebook",
+    "*.svg": "default"
   },
   "notebook.cellToolbarLocation": {
     "default": "right",
@@ -46,7 +47,7 @@
   "python.formatting.autopep8Args": ["--indent-size=2"],
   "[python]": {
     "editor.formatOnType": true,
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "jupyter.askForKernelRestart": false,
   "jupyter.widgetScriptSources": ["jsdelivr.com", "unpkg.com"],
@@ -83,7 +84,7 @@
   "[ruby]": {
     "editor.defaultFormatter": "rubocop.vscode-rubocop",
     "editor.codeActionsOnSave": {
-      "source.fixAll.rubocop": true,
+      "source.fixAll.rubocop": "explicit",
       "ruby.rubocopAutocorrect": "explicit"
     },
 
@@ -99,7 +100,7 @@
   },
 
   "markdown-preview-enhanced.codeBlockTheme": "monokai.css",
-  "markdown-preview-enhanced.previewTheme": "night.css",
+  "markdown-preview-enhanced.previewTheme": "none.css",
 
   "diffEditor.maxComputationTime": 0,
 
@@ -108,7 +109,7 @@
   "logViewer.watch": [
     {
       "title": "Session logs",
-      "pattern": "${workspaceFolder}/**/session.log"
+      "pattern": "${workspaceFolder}/**/*.log"
     }
   ],
   "workbench.panel.showLabels": false,
@@ -122,8 +123,36 @@
   "workbench.editor.enablePreview": false,
   "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
   "markdown-preview-enhanced.scrollSync": false,
-  "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
+  "github.copilot.selectedCompletionModel": "",
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.chat.agent.thinkingTool": true,
-  "github.copilot.nextEditSuggestions.enabled": false
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "workbench.sideBar.location": "right",
+  "explorer.confirmPasteNative": false,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "python -m pytest src/tests/test_crop_on_markers.py -v": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "python": true,
+    "/dev/null": true,
+    "pytest": true,
+    "python3": true,
+    "bin/rails": true
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  }
 }
