@@ -449,3 +449,4 @@ echo_yellow() {
 
 echo_green "✔ ZSH configuration loaded successfully!"
 
+# eval "$(starship init zsh)"
