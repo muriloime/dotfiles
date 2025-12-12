@@ -7,6 +7,9 @@
 # ln -sfn ~/code/dotfiles/vscode-use\\r-setttings.json ~/Library/Application\ Support/Code/User/
 
 
+cp  private_vars.example.sh private_vars.sh
+dircolors -p > ~/.dir_colors
+
 chmod +x bash_scripts/*.py
 chmod +x bash_scripts/*.sh
 
@@ -127,7 +130,7 @@ git config --global alias.slap "log --oneline --decorate --all --graph"
 git config --global alias.slp "log --oneline --decorate --graph"
 git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m “root” --allow-empty'
-git config --global alias.stsh 'stash --keep-index'
+git config --global alias.stsh 'stash -keep-index'
 git config --global alias.staash 'stash --include-untracked'
 git config --global alias.staaash 'stash --all'
 git config --global alias.shorty 'status --short --branch'
