@@ -234,7 +234,25 @@ ensure_tmux_is_running
 setopt auto_cd
 cdpath=($HOME/code $HOME/Documents)
 
-plugins=(git zsh-autosuggestions jsontools docker history git-flow brew fasd rake ruby rails zsh-syntax-highlighting dotenv)
+plugins=(
+  git 
+  jsontools 
+  docker 
+  history 
+  git-flow 
+  brew 
+  fasd 
+  rake 
+  ruby 
+  rails 
+  dotenv
+  web-search
+  extract
+  sudo 
+  zsh-autosuggestions 
+  zsh-syntax-highlighting 
+  )
+
 
 source $ZSH/oh-my-zsh.sh
 source "$HOME/.cargo/env"
@@ -286,6 +304,10 @@ path_append "/usr/local/opt/tcl-tk/bin"
 # GO
 path_append "/usr/local/go/bin"
 path_append "$HOME/go/bin"
+
+# GO
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/go/bin:$PATH:
 
 # PHP
 # export PATH="$HOME/.config/composer/vendor/bin:$PATH"
