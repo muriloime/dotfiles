@@ -1,0 +1,53 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/context-bar.sh"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/rubocop-autocorrect.sh"
+          },
+          {
+            "type": "command",
+            "command": "touch /tmp/.claude_did_edit"
+          }
+        ]
+      },
+      {
+        "matcher": "TodoWrite",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/voice-notify-subtask.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '\"\\(.tool_input.command) - \\(.tool_input.description // \"No description\")\"' >> ~/.claude/bash-command-log.txt"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/voice-notify-complete.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

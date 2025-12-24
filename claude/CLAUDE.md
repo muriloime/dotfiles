@@ -25,11 +25,9 @@ Stack emojis when requested, don't replace.
 
 ## Using Voice
 
-You have an ability to draw my attention via voice by running command `google_speech '<THING YOU WANT TO SAY>'`
+You have an ability to draw my attention via voice by running command `spd-say '<THING YOU WANT TO SAY>'`
 Use `google_speech` to let me know when you:
 
-- Complete a task
-- Pick up a new task
 - Run into problems or have a question and need my input
 - Finish what I asked you to do (so I know to come back)
   Avoid it for routine responses due to latency. Text is preferred for quick interactions. Voice is best when the auditory experience is worth the wait.
