@@ -245,7 +245,6 @@ plugins=(
   rake 
   ruby 
   rails 
-  dotenv
   web-search
   extract
   sudo 
@@ -472,3 +471,4 @@ echo_yellow() {
 echo_green "✔ ZSH configuration loaded successfully!"
 
 # eval "$(starship init zsh)"
+export WATCHMAN_ACCEPT_NICE_VALUE=1
