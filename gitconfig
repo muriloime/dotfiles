@@ -69,6 +69,7 @@
 	autocrlf = input
 	excludesfile = /Users/murilo/.gitignore_global
 	editor = code --wait
+	pager = less -F -X
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
