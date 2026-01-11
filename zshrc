@@ -22,6 +22,7 @@ cdl()
 }
 
 
+
 # push to all repos recursively
 gpa()
 {
@@ -32,10 +33,6 @@ gpa()
   fi
 }
 
-deploy_ff() 
-{
-  gpa .. && b && g add Gemfile* && g ci -m "Update gems" && g push && g push heroku main && heroku run rake db:migrate -r heroku
-}  
 
 path_append() {
     if ! [[ ":$PATH:" == *":$1:"* ]]; then
@@ -90,6 +87,10 @@ path_append $HOME/bin:/usr/local/bin
 # faster rubocop as per https://dev.to/doctolib/make-rubocop-20x-faster-in-5-min-4pjo
 export PATH="/usr/local/bin/rubocop-daemon-wrapper:$PATH"
 export RUBOCOP_DAEMON_USE_BUNDLER=true
+
+
+# Git
+export GIT_PAGER='less -FRX'
 
 # node options to avoid tailwind breaking
 export NODE_OPTIONS="--max-old-space-size=4096"
@@ -402,7 +403,7 @@ export LANG=en_US.UTF-8
 
 # Adding these because of asdf 
 export PATH=$PATH:~/.local/bin
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+# export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 # export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 # export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
