@@ -62,6 +62,11 @@ mkdir -p ~/.claude
 ln -sfn ~/code/dotfiles/claude/hooks ~/.claude
 ln -sfn ~/code/dotfiles/claude/commands ~/.claude
 ln -sfn ~/code/dotfiles/claude/agents ~/.claude
+ln -sfn ~/code/dotfiles/claude/scripts ~/.claude
+ln -sfn ~/code/dotfiles/claude/settings.json ~/.claude
+
+chmod +x ~/.claude/scripts/*.sh
+
 
 sudo cp -rp bin/* /usr/local/bin/
 chmod +x /usr/local/bin/git-*
