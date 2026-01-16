@@ -1,8 +1,4 @@
 {
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/scripts/context-bar.sh"
-  },
   "hooks": {
     "PostToolUse": [
       {
@@ -11,6 +7,14 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/rubocop-autocorrect.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/ruff-format.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/prettier-format.sh"
           },
           {
             "type": "command",
@@ -34,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '\"\\(.tool_input.command) - \\(.tool_input.description // \"No description\")\"' >> ~/.claude/bash-command-log.txt"
+            "command": "jq -r '\"\\(.tool_input.command) - \\(.tool_input.description // \"No description\")\"' >> ~/.claude/bash-command-log.txt; tail -n 500 ~/.claude/bash-command-log.txt > ~/.claude/bash-command-log.txt.tmp && mv ~/.claude/bash-command-log.txt.tmp ~/.claude/bash-command-log.txt"
           }
         ]
       }
@@ -49,5 +53,10 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/scripts/context-bar.sh"
+  },
+  "model": "opus"
 }
