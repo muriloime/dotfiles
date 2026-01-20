@@ -9,5 +9,5 @@ in_progress_task=$(echo "$input" | jq -r '.tool_input.todos[]? | select(.status 
 
 # Only announce if a task is in progress and we're already working (flag exists)
 if [ -n "$in_progress_task" ] && [ -f /tmp/.claude_did_edit ]; then
-  spd-say -l en "$in_progress_task"
+  /usr/local/bin/spd-say -l en "$in_progress_task"
 fi

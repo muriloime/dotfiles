@@ -1,16 +1,29 @@
 #!/bin/bash
 
-# Define paths
 REAL_SPD_SAY="/usr/bin/spd-say"
-READ_LOUD="read-loud"
+READ_LOUD="/usr/local/bin/read-loud"
 
-# Check if the first argument starts with a hyphen (indicating a flag like -w, -r, etc.)
-if [[ "$1" == -* ]]; then
-    # Flags detected! 
-    # System scripts might rely on this specific behavior, so we use the original.
-    "$REAL_SPD_SAY" "$@"
-else
-    # No flags detected, just text.
-    # Use the high-quality voice.
-    "$READ_LOUD" "$*"
+# 1. Check for the "Wait" flag (-w or --wait)
+# If the app EXPLICITLY asks to wait, we must block.
+if [[ "$*" == *"-w"* ]] || [[ "$*" == *"--wait"* ]]; then
+    if [[ "$1" == -* ]]; then
+         # Complex flags + Wait -> Use Robot
+         "$REAL_SPD_SAY" "$@"
+    else
+         # Text + Wait -> Use Human (Blocking)
+         "$READ_LOUD" "$*"
+    fi
+    exit 0
 fi
+
+# 2. Check for other complex flags (like -p pitch, -r rate)
+# Apps using these need the robot, but usually expect immediate exit.
+if [[ "$1" == -* ]]; then
+    "$REAL_SPD_SAY" "$@"
+    exit 0
+fi
+
+# 3. Default: Just Text (Fire and Forget)
+# We run read-loud in the background using nohup so Claude doesn't wait.
+nohup "$READ_LOUD" "$*" >/dev/null 2>&1 &
+exit 0
