@@ -41,6 +41,9 @@ alias repush="gpr && git push"
 alias rerake='!! && rake'
 
 
+# TTS
+alias say="read-loud"
+
 # Bundler
 alias b="bundle"
 alias br='RAILS_ENV=test bin/rspec'

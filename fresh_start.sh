@@ -54,7 +54,12 @@ ln -sfn ~/code/dotfiles/gitconfig ~/.gitconfig
 ln -sfn ~/code/dotfiles/gitignore_global ~/.gitignore_global
 ln -sfn ~/code/dotfiles/bin/git-create-pull-request /usr/local/bin/git-create-pull-request
 
+# TTS
+sudo ln -sfn ~/code/dotfiles/bash_scripts/read-loud.sh /usr/local/bin/read-loud
+sudo ln -sfn ~/code/dotfiles/bash_scripts/spd-say.sh /usr/local/bin/spd-say
+
 ln -sfn ~/code/dotfiles/aliases ~/.aliases
+ln -sfn ~/code/dotfiles/aliases ~/.bash_aliases
 
 ### CLAUDE
 mkdir -p ~/.claude
