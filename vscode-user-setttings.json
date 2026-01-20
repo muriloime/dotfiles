@@ -121,7 +121,6 @@
 
   "workbench.editor.enablePreview": false,
   "terminal.integrated.tabs.defaultColor": "terminal.ansiRed",
-  "markdown-preview-enhanced.scrollSync": false,
   "github.copilot.selectedCompletionModel": "",
   "github.copilot.editor.enableAutoCompletions": true,
   "github.copilot.chat.agent.thinkingTool": true,
@@ -133,7 +132,7 @@
     "markdown": true,
     "scminput": false
   },
-  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
   "python.analysis.typeCheckingMode": "basic",
 
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
@@ -167,7 +166,11 @@
     "lotofoot_indicator}\")": true,
     "len(tables)}\")": true,
     "lotofoot_count}\")": true,
-    "len(tables)": true
+    "len(tables)": true,
+    "bin/rspec": true,
+    "bundle": true,
+    "redis-server": true,
+    "gem": true
   },
   "[dockercompose]": {
     "editor.insertSpaces": true,
@@ -186,5 +189,18 @@
   "[markdown]": {
     "editor.fontFamily": "'Noto Sans', sans-serif"
   },
-  "markdown.preview.fontFamily": ""
+  "markdown.preview.fontFamily": "",
+  "gitlens.ai.model": "vscode",
+  "notebook.output.fontFamily": "Consolas, 'Courier New', monospace, sans-serif",
+  "chat.useAgentSkills": true,
+  "chat.tools.urls.autoApprove": {
+    "https://python.langchain.com/docs/versions/v1": true,
+    "https://python.langchain.com/docs/versions": true,
+    "https://python.langchain.com/docs": true,
+    "https://python.langchain.com": true,
+    "https://*.langchain.com": true,
+    "https://pypi.org/project/langchain": true,
+    "https://pypi.org/project": true,
+    "https://pypi.org": true
+  }
 }
