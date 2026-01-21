@@ -1,29 +1,36 @@
 #!/bin/bash
 
-REAL_SPD_SAY="/usr/bin/spd-say"
-READ_LOUD="/usr/local/bin/read-loud"
+# --- CONFIGURATION ---
+# 1. Point this to your actual read-loud script
+READ_LOUD="/usr/local/bin/read-loud" 
+# 2. Where to save errors (check this file if it stays silent!)
+LOG_FILE="/tmp/tts-debug.log"
 
-# 1. Check for the "Wait" flag (-w or --wait)
-# If the app EXPLICITLY asks to wait, we must block.
+# --- MAIN LOGIC ---
+
+# Function to run the TTS in the background safely
+run_silent() {
+    # We export the PATH here to ensure background processes find 'piper'/'edge-tts'
+    export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+    
+    # Run read-loud, redirect ALL output to log, and disown the process
+    nohup "$READ_LOUD" "$1" > "$LOG_FILE" 2>&1 & disown
+}
+
+# 1. Check for blocking flags (-w, --wait)
+# If these exist, we MUST wait (run wnormally, no nohup)
 if [[ "$*" == *"-w"* ]] || [[ "$*" == *"--wait"* ]]; then
-    if [[ "$1" == -* ]]; then
-         # Complex flags + Wait -> Use Robot
-         "$REAL_SPD_SAY" "$@"
-    else
-         # Text + Wait -> Use Human (Blocking)
-         "$READ_LOUD" "$*"
-    fi
+    "$READ_LOUD" "$*"
     exit 0
 fi
 
-# 2. Check for other complex flags (like -p pitch, -r rate)
-# Apps using these need the robot, but usually expect immediate exit.
-if [[ "$1" == -* ]]; then
-    "$REAL_SPD_SAY" "$@"
-    exit 0
-fi
+# 2. Check for "Robot Flags" (pitch, rate, etc.)
+# If you want to support robot flags, pass them to real spd-say here.
+# For now, we assume you want read-loud for everything else.
 
-# 3. Default: Just Text (Fire and Forget)
-# We run read-loud in the background using nohup so Claude doesn't wait.
-nohup "$READ_LOUD" "$*" >/dev/null 2>&1 &
+# 3. Fire and Forget (Standard Case)
+# This is what Claude Code triggers.
+run_silent "$*"
+
+# Exit immediately so Claude Code doesn't hang
 exit 0
